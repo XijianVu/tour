@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.frag.R;
-import com.example.frag.fragment.itemTab1.BestSaleAdapter;
+import com.example.frag.adapter.BestSaleAdapter;
 import com.example.frag.fragment.itemTab1.Photo2Adapter;
 import com.example.frag.fragment.itemTab1.Photo3Adapter;
 import com.example.frag.fragment.itemTab1.Photo4Adapter;

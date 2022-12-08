@@ -1,4 +1,4 @@
-package com.example.frag.Adapter;
+package com.example.frag.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -46,8 +46,8 @@ public class TourDetailsAdapter extends RecyclerView.Adapter<TourDetailsAdapter.
 
     @Override
     public int getItemCount() {
-        if(mlistPhoto != null){
-            return mlistPhoto.size();
+        if(arrayList != null){
+            return arrayList.size();
         }
         return 0;
     }

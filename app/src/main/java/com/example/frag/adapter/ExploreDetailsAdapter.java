@@ -1,4 +1,4 @@
-package com.example.frag.Adapter;
+package com.example.frag.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

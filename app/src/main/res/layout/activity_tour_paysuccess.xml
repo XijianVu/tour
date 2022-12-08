@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center"
-    tools:context=".activity.Tour_paysuccess">
+    tools:context=".activity.Tour_PaySuccess">
 
     <ImageView
         android:layout_width="80dp"

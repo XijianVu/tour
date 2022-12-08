@@ -1,4 +1,4 @@
-package com.example.frag.Adapter;
+package com.example.frag.adapter;
 
 import android.content.Context;
 import android.content.Intent;

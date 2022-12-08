@@ -62,7 +62,7 @@ public class TourDetails extends AppCompatActivity {
         btnTimTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TourDetails.this, Tour_findtour.class);
+                Intent intent = new Intent(TourDetails.this, Tour_FindTour.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
             }

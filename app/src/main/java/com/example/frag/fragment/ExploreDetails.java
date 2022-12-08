@@ -6,7 +6,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import com.example.frag.Adapter.ExploreDetailsAdapter;
+import com.example.frag.adapter.ExploreDetailsAdapter;
 import com.example.frag.model.TourPhoto;
 import com.example.frag.R;
 

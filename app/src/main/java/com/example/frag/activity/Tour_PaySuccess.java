@@ -9,9 +9,8 @@ import android.widget.TextView;
 
 import com.example.frag.MainActivity;
 import com.example.frag.R;
-import com.example.frag.fragment.HomeFragment;
 
-public class Tour_paysuccess extends AppCompatActivity {
+public class Tour_PaySuccess extends AppCompatActivity {
     private TextView btnHome;
 
     @Override
@@ -23,7 +22,7 @@ public class Tour_paysuccess extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tour_paysuccess.this, MainActivity.class);
+                Intent intent = new Intent(Tour_PaySuccess.this, MainActivity.class);
 
                 startActivity(intent);
             }

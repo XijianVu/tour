@@ -30,21 +30,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity.Tour_findtour"
+            android:name=".activity.Tour_FindTour"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity.Tour_fillinfo"
+            android:name=".activity.Tour_FillInfo"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity.Tour_paysuccess"
+            android:name=".activity.Tour_PaySuccess"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

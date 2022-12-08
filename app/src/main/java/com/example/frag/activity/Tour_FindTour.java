@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.frag.R;
 
-public class Tour_findtour extends AppCompatActivity {
+public class Tour_FindTour extends AppCompatActivity {
     private TextView tvTitle;
     private TextView tvTourName, people_amount, child_amount;
     private  ImageButton btnDate;
@@ -102,7 +103,12 @@ public class Tour_findtour extends AppCompatActivity {
         btnFillInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tour_findtour.this, Tour_fillinfo.class);
+                Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
+                intent.putExtra("name", name);
+                intent.putExtra("_counter_people", _counter_people);
+                intent.putExtra("_counter_child", _counter_child);
+
+
                 startActivity(intent);
             }
         });

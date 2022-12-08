@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.frag.Adapter.AdapterMyTour;
+import com.example.frag.adapter.AdapterMyTour;
 import com.example.frag.R;
 import com.example.frag.model.item;
 
