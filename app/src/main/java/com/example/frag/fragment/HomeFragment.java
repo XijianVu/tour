@@ -240,7 +240,7 @@ public class HomeFragment extends Fragment {
                 "Vé vào vườn quốc gia\n" +
                 "Xe đạp\n" +
                 "Phí tham quan Bàu Sấu\n" +
-                "Lửa trại: Đống củi, MC hoạt náo dẫn chương trình. Ngoài ra tặng thêm quý khách hàng 10 trái bắp và 10 củ khoai.","1.850.000 VND"));
+                "Lửa trại: Đống củi, MC hoạt náo dẫn chương trình. Ngoài ra tặng thêm quý khách hàng 10 trái bắp và 10 củ khoai.","1850000"));
         arrayList.add(new Tour(R.drawable.a2,"Tour du lịch Đảo Ó Đồng Trường","1 ngày","vfv","df","Chi phí vận chuyển: Xe du lịch đời mới đưa đón tham quan suốt tuyến.\n" +
                 "Khách sạn 3 sao theo tiêu chuẩn: Phòng 2 – 3-4/người.\n" +
                 "02 bữa sáng\n" +
@@ -248,7 +248,7 @@ public class HomeFragment extends Fragment {
                 "Hướng dẫn viên chuyên nghiệp, nhiệt tình, chu đáo phục vụ suốt tuyến.\n" +
                 "Phí tham quan theo chương trình.\n" +
                 "Quà tặng: Nón du lịch Khăn lạnh, Nước suối 1 chai / 1 ngày / 1 người.\n" +
-                "Bảo hiểm du lịch suốt chuyến tham quan 30.000.000 đồng/vụ .","1.400.000 VND"));
+                "Bảo hiểm du lịch suốt chuyến tham quan 30.000.000 đồng/vụ .","1400000" ));
         arrayList.add(new Tour(R.drawable.a3,"Du lịch Đà Lạt","2 ngày","Đà Lạt","Hồ Chí Minh", "Vận chuyển: Xe du lịch 29-45 chỗ đời mới phục vụ suốt tuyến.\n" +
                 "Vé tham quan: Vé các điểm tham quan theo lịch trình\n" +
                 "Lưu trú: Khách sạn 2-3 sao tiêu chuẩn 2 - 4 – 6 khách/ 1 phòng\n" +
@@ -258,10 +258,10 @@ public class HomeFragment extends Fragment {
                 "Bảo hiểm 30.000.000 đ/người/trường hợp (chỉ áp dụng cho những khách hoàn tất thủ tục đăng ký tour trước khởi hành 1 ngày, không bao gồm các ngày nghỉ cuối tuần và các ngày nghỉ lễ, Tết)\n" +
                 "Hướng dẫn viên HDV nhiệt tình, kinh nghiệm, vui vẻ phục vụ chu đáo\n" +
                 "Nước suối, khăn lạnh,nón Nước suối: 1 chai 500ml/ngày/khách Khăn lạnh: 1 cái/ngày/khách\n" +
-                "Nón du lịch: 1 nón/khách","1.750.000 VND"));
-        arrayList.add(new Tour(R.drawable.a4,"Nha Trang","gdh","dfgdf","fdgd","item1","2.400.000"));
-        arrayList.add(new Tour(R.drawable.a5,"Sa Pa","gdh","dfgdf","fdgd","item1","3.000.000"));
-        arrayList.add(new Tour(R.drawable.a6,"Vung Tau","gdh","dfgdf","fdgd","item1","1.000.000"));
+                "Nón du lịch: 1 nón/khách","1750000"));
+        arrayList.add(new Tour(R.drawable.a4,"Nha Trang","gdh","dfgdf","fdgd","item1","2400000"));
+        arrayList.add(new Tour(R.drawable.a5,"Sa Pa","gdh","dfgdf","fdgd","item1","3000000"));
+        arrayList.add(new Tour(R.drawable.a6,"Vung Tau","gdh","dfgdf","fdgd","item1","1000000"));
     }
 
     private List<photo2> getListPhoto1 () {

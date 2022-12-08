@@ -64,6 +64,7 @@ public class TourDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TourDetails.this, Tour_FindTour.class);
                 intent.putExtra("name", name);
+                intent.putExtra("price", price);
                 startActivity(intent);
             }
         });

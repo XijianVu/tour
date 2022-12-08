@@ -14,7 +14,7 @@ import com.example.frag.R;
 public class Tour_FillInfo extends AppCompatActivity {
     private Button btnPay;
     private TextView tvTitle;
-    private TextView tvTourName, tvPeople_amount, tvChild_amount;
+    private TextView tvTourName, tvPeople_amount, tvChild_amount, tvPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,16 @@ public class Tour_FillInfo extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         String name = bundle.getString("name");
+        String price = bundle.getString("price");
+        int b=Integer.parseInt(price);
+
         int people_amount = bundle.getInt("_counter_people");
         int child_amount = bundle.getInt("_counter_child");
         Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
 
         tvTitle.setText(name);
         tvTourName.setText(name);
+        tvPrice.setText(String.valueOf(people_amount*b+child_amount*b));
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
 
@@ -53,6 +57,8 @@ public class Tour_FillInfo extends AppCompatActivity {
 
         tvPeople_amount = findViewById(R.id.tvPeople_amount);
         tvChild_amount = findViewById(R.id.tvChild_amount);
+        tvPrice = findViewById(R.id.tvPrice);
+
 
     }
 }

@@ -31,6 +31,7 @@ public class Tour_FindTour extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("name");
+        String price = bundle.getString("price");
 
         tvTitle.setText(name);
         tvTourName.setText(name);
@@ -105,6 +106,7 @@ public class Tour_FindTour extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
                 intent.putExtra("name", name);
+                intent.putExtra("price", price);
                 intent.putExtra("_counter_people", _counter_people);
                 intent.putExtra("_counter_child", _counter_child);
 
