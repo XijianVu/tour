@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.frag.R;
-import com.example.frag.model.Trend_ItemList;
+import com.example.frag.model.Blog;
 
 public class BlogDetail extends AppCompatActivity {
     private ImageView imgItemDetail;
     private TextView tvTitleDetail;
     private TextView tvDescripcionDetail;
-    private Trend_ItemList itemDetail;
+    private Blog itemDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

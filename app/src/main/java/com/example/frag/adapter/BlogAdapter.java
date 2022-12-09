@@ -15,17 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.frag.R;
 import com.example.frag.activity.BlogDetail;
 import com.example.frag.model.item;
-import com.example.frag.model.Trend_ItemList;
+import com.example.frag.model.Blog;
 
 import java.util.ArrayList;
 
 public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.TrendRecyclerHolder>{
 
     Context context;
-    ArrayList<Trend_ItemList> arrayList;
+    ArrayList<Blog> arrayList;
     RecyclerItemClick itemClick;
 
-    public BlogAdapter(Context context, ArrayList<Trend_ItemList> arrayList) {
+    public BlogAdapter(Context context, ArrayList<Blog> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
         this.itemClick = itemClick;
@@ -40,7 +40,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.TrendRecyclerH
 
     @Override
     public void onBindViewHolder(@NonNull BlogAdapter.TrendRecyclerHolder holder, int position) {
-        Trend_ItemList it =arrayList.get(position);
+        Blog it =arrayList.get(position);
         if(it == null){
             return;
         }

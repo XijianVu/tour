@@ -1,11 +1,11 @@
 package com.example.frag.model;
 
-public class Trend_ItemList {
+public class Blog {
     private String titulo;
     private String descripcion;
     private int imgResource;
 
-    public Trend_ItemList(String titulo, String descripcion, int imgResource) {
+    public Blog(String titulo, String descripcion, int imgResource) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imgResource = imgResource;
