@@ -2,24 +2,30 @@ package com.example.frag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.frag.MainActivity;
 import com.example.frag.R;
 
+import java.util.Calendar;
+
 public class Tour_FindTour extends AppCompatActivity {
-    private TextView tvTitle;
+    private TextView tvTitle, txtDate;
     private TextView tvTourName, people_amount, child_amount;
     private  ImageButton btnDate;
     private Button  btnFillInfo;
     private static int _counter_people = 0 ;
     private static int _counter_child = 0 ;
     private ImageButton people_minus, people_add, child_minus, child_add;
+    DatePickerDialog picker;
 
 
     @Override
@@ -97,7 +103,20 @@ public class Tour_FindTour extends AppCompatActivity {
         btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
 
+                // date picker dialog
+                picker = new DatePickerDialog(Tour_FindTour.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker.show();
             }
         });
 
@@ -119,6 +138,8 @@ public class Tour_FindTour extends AppCompatActivity {
     private void initViews() {
         tvTitle = findViewById(R.id.tvTitle);
         tvTourName = findViewById(R.id.tvTourName);
+        txtDate = findViewById(R.id.txtDate);
+
         btnDate = findViewById(R.id.btnDate);
         btnFillInfo = findViewById(R.id.btnFillInfo);
 
