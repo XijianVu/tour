@@ -9,7 +9,6 @@ public class Blog {
     public Blog(String titulo, String descripcion,  String purl) {
         this.titulo = titulo;
         this.descripcion = descripcion;
-
         this.purl = purl;
     }
 

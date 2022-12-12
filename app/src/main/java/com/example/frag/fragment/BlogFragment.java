@@ -1,5 +1,7 @@
 package com.example.frag.fragment;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
+import com.example.frag.activity.Blog_add;
 import com.example.frag.adapter.BlogAdapter;
 import com.example.frag.R;
 import com.example.frag.model.Blog;
@@ -31,6 +37,7 @@ public class BlogFragment extends Fragment {
     private String mParam2;
     RecyclerView recview;
     BlogAdapter adapter;
+    ImageButton blog_remove;
     public BlogFragment() {
 
     }
@@ -65,6 +72,8 @@ public class BlogFragment extends Fragment {
         adapter=new BlogAdapter(options);
         recview.setAdapter(adapter);
 
+
+
         return view;
     }
 
@@ -79,6 +88,12 @@ public class BlogFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
+//    private void XacNhanXoa(){
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+//        alertDialog.setTitle("Cảnh báo");
+//        alertDialog.show();
+//    }
 
     /*
     @Override

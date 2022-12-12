@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +49,13 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                 context.startActivity(intent);
             }
         });
+
+        holder.blog_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 
     @NonNull
@@ -60,7 +68,9 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
     public class BlogViewHolder extends RecyclerView.ViewHolder
     {
         ImageView imgItem;
-        TextView tvTitulo,tvDescripcion,emailtext;
+        TextView tvTitulo,tvDescripcion;
+        ImageButton blog_remove;
+
 
         public BlogViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,7 +78,9 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
             imgItem=itemView.findViewById(R.id.imgItem);
             tvTitulo=itemView.findViewById(R.id.tvTitulo);
             tvDescripcion=itemView.findViewById(R.id.tvDescripcion);
+            blog_remove=itemView.findViewById(R.id.blog_remove);
 
         }
     }
+
 }
