@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import com.example.frag.adapter.BlogAdapter;
 import com.example.frag.R;
 import com.example.frag.model.Blog;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -25,30 +27,18 @@ import java.util.ArrayList;
  */
 public class BlogFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    private ArrayList<Blog> arrayList;
-    private RecyclerView rvLista;
-    private BlogAdapter adapter;
-
+    RecyclerView recview;
+    BlogAdapter adapter;
     public BlogFragment() {
-        // Required empty public constructor
+
     }
 
-
-    // TODO: Rename and change types and number of parameters
     public static BlogFragment newInstance(String param1, String param2) {
         BlogFragment fragment = new BlogFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,19 +46,41 @@ public class BlogFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blog, container, false);
+        View view=inflater.inflate(R.layout.fragment_blog, container, false);
+
+        recview=(RecyclerView)view.findViewById(R.id.recview);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseRecyclerOptions<Blog> options =
+                new FirebaseRecyclerOptions.Builder<Blog>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("blog"), Blog.class)
+                        .build();
+
+        adapter=new BlogAdapter(options);
+        recview.setAdapter(adapter);
+
+        return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    /*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -95,6 +107,6 @@ public class BlogFragment extends Fragment {
                 "Phố cổ Hội An là một phố cổ nằm ven biển của tỉnh miền Trung cách thành phố Đà Nẵng 30km về phía Nam, thuộc tỉnh Quảng nam Việt Nam. Phố cổ Hội An điển hình cho một thương cảng thị trường sầm uất, nơi này từng có dấu tích của thương cảng người Chăm, được biết đến với con đường tơ lụa nổi tiếng. trong hai cuộc chiến tranh lớn của việt Nam không bị tàn phá nơi đây chính thức trở thành nơi du lịch hấp dẫn được nhiều du khách bốn phương biết tới.", R.drawable.img_4));
         arrayList.add(new Blog("Cầu Vàng - Kiệt tác giữa núi rừng", "Là một trong những địa điểm du lịch mới vô cùng nổi tiếng, Cầu Vàng Đà Nẵng trên Bà Nà Hills đã khiến dân tình phải trầm trồ, xốn xang bởi vẻ đẹp kỳ vĩ. Từ lần đầu xuất hiện Cầu Vàng không chỉ tạo nên cơn sốt trong nước mà còn gây \"chấn động\" khắp thế giới\n" + "\n" + "Cầu Vàng thuộc khu du lịch Sun World Ba Na Hills, sau 1 năm thiết kế và 1 năm thi công, cây cầu chính thức được khánh thành vào tháng 6/2018. Giống như tên gọi của mình, Cầu Vàng có một màu vàng đặc trưng lấp lánh và nổi bật giữa thiên nhiên xanh mát.", R.drawable.img_7));
         arrayList.add(new Blog("Chợ nổi Cái Răng Cần Thơ", "Chợ nổi Cái Răng là loại hình chợ độc đáo và đặc trưng của vùng đồng bằng sông Cửu Long mà không nơi nào trên đất nước Việt Nam có được. Và đây cũng là khu chợ tiêu biểu, sầm uất, nổi tiếng nhất cho nét văn hóa sông nước miền Tây. Chợ nổi Cái Răng Cần Thơ sẽ mang đến những trải nghiệm có 1-0-2 cho bạn như chiêm ngưỡng khung cảnh nên thơ của chợ nổi lúc bình minh, ngồi lênh đênh trên thuyền hòa mình vào không khí buôn bán tấp nập sáng sớm và thưởng thức tô bún riêu ngay trên ghe thuyền… vô cùng tuyệt vời. ", R.drawable.img_8));
-    }
+    }*/
 
 }

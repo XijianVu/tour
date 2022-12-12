@@ -1,13 +1,40 @@
 package com.example.frag.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Tour {
-    private int resourceId;
-    private String name;
-    private String timeTour;
-    private String placeTour;
-    private String placeStart;
-    private String about;
-    private String price;
+    String resourceId;
+    String name;
+    String pricePeople ;
+    String priceChild;
+    String timeTour;
+    String placeTour;
+    String placeStart;
+    String about;
+
+    public Tour(){
+
+    }
+
+    public Tour(String resourceId, String name, String pricePeople, String priceChild, String timeTour, String placeTour, String placeStart, String about) {
+        this.resourceId = resourceId;
+        this.name = name;
+        this.pricePeople = pricePeople;
+        this.priceChild = priceChild;
+        this.timeTour = timeTour;
+        this.placeTour = placeTour;
+        this.placeStart = placeStart;
+        this.about = about;
+    }
+
+    public String getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(String resourceId) {
+        this.resourceId = resourceId;
+    }
 
     public String getName() {
         return name;
@@ -17,14 +44,20 @@ public class Tour {
         this.name = name;
     }
 
-    public Tour(int resourceId, String name, String timeTour, String placeTour, String placeStart, String about, String price) {
-        this.resourceId = resourceId;
-        this.name = name;
-        this.timeTour = timeTour;
-        this.placeTour = placeTour;
-        this.placeStart = placeStart;
-        this.about = about;
-        this.price = price;
+    public String getPricePeople() {
+        return pricePeople;
+    }
+
+    public void setPricePeople(String pricePeople) {
+        this.pricePeople = pricePeople;
+    }
+
+    public String getPriceChild() {
+        return priceChild;
+    }
+
+    public void setPriceChild(String priceChild) {
+        this.priceChild = priceChild;
     }
 
     public String getTimeTour() {
@@ -51,14 +84,6 @@ public class Tour {
         this.placeStart = placeStart;
     }
 
-    public int getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(int resourceId) {
-        this.resourceId = resourceId;
-    }
-
     public String getAbout() {
         return about;
     }
@@ -66,14 +91,20 @@ public class Tour {
     public void setAbout(String about) {
         this.about = about;
     }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
+//    public Map<String, Boolean> stars = new HashMap<>();
+//    public Map<String, Object> toMap() {
+//        HashMap<String, Object> result = new HashMap<>();
+//        result.put("image", resourceId);
+//        result.put("name", name);
+//        result.put("about", about);
+//        result.put("placeStart", placeStart);
+//        result.put("placeTour", placeTour);
+//        result.put("pricePeople", pricePeople);
+//        result.put("priceChild", priceChild);
+//        result.put("timeTour", timeTour);
+//
+//        return result;
+//    }
 }
 
 

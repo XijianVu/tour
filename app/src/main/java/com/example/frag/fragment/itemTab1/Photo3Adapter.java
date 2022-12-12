@@ -69,7 +69,7 @@ public class Photo3Adapter extends  RecyclerView.Adapter<Photo3Adapter.UserViewH
 
             imgResource = itemView.findViewById(R.id.img_slider);
             name = itemView.findViewById(R.id.name);
-            price = itemView.findViewById(R.id.price);
+            price = itemView.findViewById(R.id.pricePeople);
         }
     }
 }

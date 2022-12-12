@@ -1,41 +1,40 @@
 package com.example.frag.model;
 
 public class Blog {
-    private String titulo;
-    private String descripcion;
-    private int imgResource;
+    String titulo,descripcion,purl;
 
-    public Blog(String titulo, String descripcion, int imgResource) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.imgResource = imgResource;
+    public Blog() {
     }
 
+    public Blog(String titulo, String descripcion,  String purl) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
 
+        this.purl = purl;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public void setImgResource(int imgResource) {
-        this.imgResource = imgResource;
-    }
-    public  String getTitulo()
-    {
-        return titulo;
+    public String getPurl() {
+        return purl;
     }
 
-    public  String getDescripcion() {
-
-        return descripcion;
-    }
-
-    public  int getImgResource() {
-
-        return imgResource;
+    public void setPurl(String purl) {
+        this.purl = purl;
     }
 }
+

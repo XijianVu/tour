@@ -10,90 +10,65 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.frag.R;
 import com.example.frag.activity.BlogDetail;
 import com.example.frag.model.item;
 import com.example.frag.model.Blog;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.ArrayList;
 
-public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.TrendRecyclerHolder>{
+public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogViewHolder>{
 
-    Context context;
-    ArrayList<Blog> arrayList;
-    RecyclerItemClick itemClick;
 
-    public BlogAdapter(Context context, ArrayList<Blog> arrayList) {
-        this.context = context;
-        this.arrayList = arrayList;
-        this.itemClick = itemClick;
+    public BlogAdapter(@NonNull FirebaseRecyclerOptions<Blog> options) {
+        super(options);
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull BlogViewHolder holder, int position, @NonNull final Blog model) {
+        holder.tvTitulo.setText(model.getTitulo());
+        holder.tvDescripcion.setText(model.getDescripcion());
+
+        Glide.with(holder.imgItem.getContext()).load(model.getPurl()).into(holder.imgItem);
+
+        holder.imgItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, BlogDetail.class);
+                intent.putExtra("title", model.getTitulo());
+                intent.putExtra("des", model.getDescripcion());
+                intent.putExtra("image", model.getPurl());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull
     @Override
-    public TrendRecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trend_item_list_view, parent, false);
-        return new TrendRecyclerHolder(view);
+    public BlogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.trend_item_list_view,parent,false);
+        return new BlogViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull BlogAdapter.TrendRecyclerHolder holder, int position) {
-        Blog it =arrayList.get(position);
-        if(it == null){
-            return;
-        }
-        holder.imgItem.setImageResource(it.getImgResource());
-        holder.tvTitulo.setText(it.getTitulo());
-        holder.tvDescripcion.setText(it.getDescripcion());
+    public class BlogViewHolder extends RecyclerView.ViewHolder
+    {
+        ImageView imgItem;
+        TextView tvTitulo,tvDescripcion,emailtext;
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                itemClick.itemClick(item);
-//
-//
-//            }
-//        });
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return arrayList.size();
-    }
-
-    public interface RecyclerItemClick {
-        void itemClick(item it);
-    }
-
-
-    public class TrendRecyclerHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private ImageView imgItem;
-        private TextView tvTitulo;
-        private TextView tvDescripcion;
-
-        public TrendRecyclerHolder(@NonNull View itemView) {
+        public BlogViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgItem = itemView.findViewById(R.id.imgItem);
-            tvTitulo = itemView.findViewById(R.id.tvTitulo);
-            tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
-            itemView.setOnClickListener(this);
-        }
+            imgItem=itemView.findViewById(R.id.imgItem);
+            tvTitulo=itemView.findViewById(R.id.tvTitulo);
+            tvDescripcion=itemView.findViewById(R.id.tvDescripcion);
 
-        @Override
-        public void onClick(View view) {
-            int postion = getAdapterPosition();
-            Toast.makeText(context, "postion"+postion, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context , BlogDetail.class);
-            intent.putExtra("image" , arrayList.get(postion).getImgResource());
-            intent.putExtra("title" , arrayList.get(postion).getTitulo());
-            intent.putExtra("des" , arrayList.get(postion).getDescripcion());
-
-            context.startActivity(intent);
         }
     }
-
 }

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.frag.R;
 import com.example.frag.model.Blog;
+import com.squareup.picasso.Picasso;
 
 public class BlogDetail extends AppCompatActivity {
     private ImageView imgItemDetail;
@@ -15,19 +16,29 @@ public class BlogDetail extends AppCompatActivity {
     private TextView tvDescripcionDetail;
     private Blog itemDetail;
 
+
+    public static final String EXTRA_POST_KEY = "post_key";
+
+    private String mPostKey;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trend_detail);
 
+        mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
+
         initViews();
 
         Bundle bundle = getIntent().getExtras();
-        int image = bundle.getInt("image");
+        String image = bundle.getString("image");
         String title = bundle.getString("title");
         String des = bundle.getString("des");
 
-        imgItemDetail.setImageResource(image);
+        //Bitmap bitmap = (Bitmap) intent. getParcelableExtra("image");
+        Picasso.get().load(image).into(imgItemDetail);
+
+        //imgItemDetail.setImageBitmap(bitmap);
         tvTitleDetail.setText(title);
         tvDescripcionDetail.setText(des);
 
