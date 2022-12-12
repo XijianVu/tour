@@ -15,10 +15,12 @@ import android.widget.Toast;
 import com.example.frag.MainActivity;
 import com.example.frag.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Tour_FindTour extends AppCompatActivity {
-    private TextView tvTitle, txtDate;
+    private TextView tvTitle, txtDate, txtDate2;
     private TextView tvTourName, people_amount, child_amount;
     private  ImageButton btnDate;
     private Button  btnFillInfo;
@@ -37,7 +39,8 @@ public class Tour_FindTour extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("name");
-        String price = bundle.getString("price");
+        String pricePeople = bundle.getString("pricePeople");
+        String priceChild = bundle.getString("priceChild");
 
         tvTitle.setText(name);
         tvTourName.setText(name);
@@ -100,6 +103,14 @@ public class Tour_FindTour extends AppCompatActivity {
             }
         });
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = formatter.format(c.getTime());
+
+
+        txtDate.setText(formattedDate.toString());
+        txtDate2.setText(formattedDate.toString());
+
         btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +125,7 @@ public class Tour_FindTour extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                txtDate2.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
@@ -125,11 +137,10 @@ public class Tour_FindTour extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
                 intent.putExtra("name", name);
-                intent.putExtra("price", price);
+                intent.putExtra("pricePeople", pricePeople);
+                intent.putExtra("priceChild", priceChild);
                 intent.putExtra("_counter_people", _counter_people);
                 intent.putExtra("_counter_child", _counter_child);
-
-
                 startActivity(intent);
             }
         });
@@ -139,6 +150,7 @@ public class Tour_FindTour extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvTourName = findViewById(R.id.tvTourName);
         txtDate = findViewById(R.id.txtDate);
+        txtDate2 = findViewById(R.id.txtDate2);
 
         btnDate = findViewById(R.id.btnDate);
         btnFillInfo = findViewById(R.id.btnFillInfo);

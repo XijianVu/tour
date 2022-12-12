@@ -90,6 +90,7 @@
                 android:layout_marginRight="20dp"
                 android:src="@drawable/ic_baseline_calendar_month_24"/>
             <TextView
+                android:id="@+id/txtDate2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1/3/2013"

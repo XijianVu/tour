@@ -54,16 +54,16 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, BlogDetail.class);
-                intent.putExtra("title", model.getName());
-                intent.putExtra("des", model.getAbout());
+                Intent intent = new Intent(context, TourDetails.class);
+                intent.putExtra("name", model.getName());
+                intent.putExtra("about", model.getAbout());
                 intent.putExtra("image", model.getResourceId());
-
-                intent.putExtra("pricePeople", model.getPricePeople());
                 intent.putExtra("placeStart", model.getPlaceStart());
                 intent.putExtra("placeTour", model.getPlaceTour());
-                intent.putExtra("time", model.getTimeTour());
+                intent.putExtra("timeTour", model.getTimeTour());
+                intent.putExtra("pricePeople", model.getPricePeople());
                 intent.putExtra("priceChild", model.getPriceChild());
+                Toast.makeText(context,  model.getName(), Toast.LENGTH_SHORT).show();
 
                 context.startActivity(intent);
             }

@@ -33,8 +33,10 @@ public class Tour_FillInfo extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         String name = bundle.getString("name");
-        String price = bundle.getString("price");
-        int b=Integer.parseInt(price);
+        String pricePeople = bundle.getString("pricePeople");
+        String priceChild = bundle.getString("priceChild");
+        int people=Integer.parseInt(pricePeople);
+        int child=Integer.parseInt(priceChild);
 
         int people_amount = bundle.getInt("_counter_people");
         int child_amount = bundle.getInt("_counter_child");
@@ -42,15 +44,15 @@ public class Tour_FillInfo extends AppCompatActivity {
 
 
         tvTourName.setText(name);
-        tvPriceTotal.setText(String.valueOf(people_amount*b+child_amount*b));
+        tvPriceTotal.setText(String.valueOf(people_amount*people+child_amount*child));
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
 
         tvAmountTicketPeople.setText("("+String.valueOf(people_amount)+"x)");
         tvAmountTicketChild.setText("("+String.valueOf(child_amount)+"x)");
 
-        tvPricePeople.setText(String.valueOf(people_amount*b));
-        tvPriceChild.setText(String.valueOf(child_amount*b));
+        tvPricePeople.setText(String.valueOf(people_amount*people));
+        tvPriceChild.setText(String.valueOf(child_amount*child));
 
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override

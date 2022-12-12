@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.frag.R;
 import com.example.frag.model.Tour;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,22 +42,23 @@ public class TourDetails extends AppCompatActivity {
         initViews();
 
         Bundle bundle = getIntent().getExtras();
-        int image = bundle.getInt("image");
+        String image = bundle.getString("image");
         String name = bundle.getString("name");
         String time = bundle.getString("timeTour");
         String place = bundle.getString("placeTour");
         String startPlace = bundle.getString("placeStart");
-        String price = bundle.getString("price");
+        String pricePeople = bundle.getString("pricePeople");
+        String priceChild = bundle.getString("priceChild");
         String about = bundle.getString("about");
 
 
-
-        viewPagerdetails.setImageResource(image);
+        Picasso.get().load(image).into(viewPagerdetails);
+        //viewPagerdetails.setImageResource(image);
         tvTourName.setText(name);
         timeTour.setText(time);
         placeTour.setText(place);
         placeStart.setText(startPlace);
-        tvPrice.setText(price);
+        tvPrice.setText(pricePeople);
         tourtrend.setText(about);
 
         btnTimTour.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +66,8 @@ public class TourDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TourDetails.this, Tour_FindTour.class);
                 intent.putExtra("name", name);
-                intent.putExtra("price", price);
+                intent.putExtra("pricePeople", pricePeople);
+                intent.putExtra("priceChild", priceChild);
                 startActivity(intent);
             }
         });

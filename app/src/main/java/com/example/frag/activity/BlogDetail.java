@@ -17,7 +17,7 @@ public class BlogDetail extends AppCompatActivity {
     private Blog itemDetail;
 
 
-    public static final String EXTRA_POST_KEY = "post_key";
+    //public static final String EXTRA_POST_KEY = "post_key";
 
     private String mPostKey;
 
@@ -26,7 +26,7 @@ public class BlogDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trend_detail);
 
-        mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
+        //mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
 
         initViews();
 
