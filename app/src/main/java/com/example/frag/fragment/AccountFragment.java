@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.frag.Login;
 import com.example.frag.LoginActivity;
 import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.activity.Blog_add;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,14 +24,6 @@ import com.example.frag.R;
  */
 public class AccountFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -47,8 +41,7 @@ public class AccountFragment extends Fragment {
     public static AccountFragment newInstance(String param1, String param2) {
         AccountFragment fragment = new AccountFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,8 +50,7 @@ public class AccountFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -67,11 +59,20 @@ public class AccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
-        Button button = view.findViewById(R.id.btnLogin);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btnLogin = view.findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout blog_add = view.findViewById(R.id.blog_add);
+        blog_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Blog_add.class);
                 startActivity(intent);
             }
         });
