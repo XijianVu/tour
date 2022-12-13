@@ -1,6 +1,7 @@
 package com.example.frag.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,12 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.frag.Login;
 import com.example.frag.LoginActivity;
 import com.example.frag.MainActivity;
 import com.example.frag.R;
 import com.example.frag.activity.Blog_add;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,7 @@ import com.example.frag.activity.Blog_add;
  * create an instance of this fragment.
  */
 public class AccountFragment extends Fragment {
+    TextView tvName;
 
 
     public AccountFragment() {
@@ -60,10 +66,13 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         Button btnLogin = view.findViewById(R.id.btnLogin);
+        TextView tvName =view.findViewById(R.id.tvName);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
+                onClickLogin();
                 startActivity(intent);
             }
         });
@@ -77,5 +86,17 @@ public class AccountFragment extends Fragment {
             }
         });
         return view;
+    }
+    private void getProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            return;
+        }
+        String email = user.getEmail();
+        //Uri photoUrl = user.getPhotoUrl();
+
+        tvName.setText(email);
+
+        //imageView.setVisibility(View.VISIBLE);
     }
 }

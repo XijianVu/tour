@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Frag"
         tools:targetApi="31">
         <activity
+            android:name=".Blog_edit"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.Blog_add"
             android:exported="false">
             <meta-data

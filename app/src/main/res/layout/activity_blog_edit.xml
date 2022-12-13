@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.Blog_add">
+    tools:context=".activity.Blog_edit">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
 
-            android:text="Thêm blog review"/>
+            android:text="Thông tin liên hệ"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,20 +56,20 @@
                     android:hint="description"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-            <com.google.android.material.textfield.TextInputLayout
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edit_purl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/edit_purl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:backgroundTint="@color/white"
-                    android:ems="10"
-                    android:hint="purl" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="purl" />
+        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -83,7 +83,7 @@
                 android:ems="10"
                 android:hint="titulo" />
         </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
+    </LinearLayout>
     <Button
         android:id="@+id/btn_push_blog"
         android:layout_width="wrap_content"
@@ -92,32 +92,32 @@
         android:layout_gravity="center_horizontal"/>
 
 
-<!--    </LinearLayout>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_descripcion"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="descripcion"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_purl"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="purl"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_titulo"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="titulo"/>-->
-<!--        <Button-->
-<!--            android:id="@+id/btn_push_blog"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Push"-->
-<!--            android:layout_gravity="center_horizontal"/>-->
-<!--    </LinearLayout>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical">-->
+    <!--        <EditText-->
+    <!--            android:id="@+id/edit_descripcion"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:hint="descripcion"/>-->
+    <!--        <EditText-->
+    <!--            android:id="@+id/edit_purl"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:hint="purl"/>-->
+    <!--        <EditText-->
+    <!--            android:id="@+id/edit_titulo"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:hint="titulo"/>-->
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_push_blog"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Push"-->
+    <!--            android:layout_gravity="center_horizontal"/>-->
+    <!--    </LinearLayout>-->
 
 </LinearLayout>

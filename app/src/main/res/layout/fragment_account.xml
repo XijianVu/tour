@@ -34,30 +34,11 @@
                         android:gravity="center_vertical|center"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginTop="-20dp"
-                            android:orientation="horizontal">
 
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="5dp"
-                                android:background="#8AC1EC"
-                                android:src="@drawable/ic_baseline_message_24" />
-
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="#8AC1EC"
-                                android:src="@drawable/ic_baseline_settings_24" />
-
-                        </LinearLayout>
 
 
                         <TextView
+                            android:id="@+id/tvName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
