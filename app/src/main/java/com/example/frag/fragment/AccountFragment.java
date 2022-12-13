@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public class AccountFragment extends Fragment {
     TextView tvName;
+    Button btnLogin,blog_add,btnLogout;
 
 
     public AccountFragment() {
@@ -72,7 +73,8 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
-                onClickLogin();
+                //tvName.setVisibility(View.VISIBLE);
+                //getProfile();
                 startActivity(intent);
             }
         });
@@ -92,10 +94,14 @@ public class AccountFragment extends Fragment {
         if (user == null) {
             return;
         }
-        String email = user.getEmail();
+        String email = user.getEmail().toString().trim();
         //Uri photoUrl = user.getPhotoUrl();
 
         tvName.setText(email);
+
+       /* btnLogin.setVisibility(View.VISIBLE);
+        blog_add.setVisibility(View.VISIBLE);
+        btnLogout.setVisibility(View.VISIBLE);*/
 
         //imageView.setVisibility(View.VISIBLE);
     }
