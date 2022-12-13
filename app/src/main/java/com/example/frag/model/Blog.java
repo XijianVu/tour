@@ -6,7 +6,7 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(String titulo, String descripcion,  String purl) {
+    public Blog(String descripcion, String purl,  String titulo) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.purl = purl;

@@ -1,13 +1,18 @@
 package com.example.frag.adapter;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -95,6 +100,26 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                 alert.show();
             }
         });
+
+        holder.blog_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(view.getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.layout_dialog_edit_blog);
+
+                Window window = dialog.getWindow();
+                if(window==null){
+                    return;
+                }
+                window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            }
+        });
+
+
+
     }
 
     @NonNull
@@ -109,6 +134,8 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
         ImageView imgItem;
         TextView tvTitulo,tvDescripcion;
         ImageButton blog_remove;
+        ImageButton blog_edit;
+
 
 
         public BlogViewHolder(@NonNull View itemView) {
@@ -118,8 +145,13 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
             tvTitulo=itemView.findViewById(R.id.tvTitulo);
             tvDescripcion=itemView.findViewById(R.id.tvDescripcion);
             blog_remove=itemView.findViewById(R.id.blog_remove);
+            blog_edit = itemView.findViewById(R.id.blog_edit);
 
         }
+    }
+
+    private void openDialogEditBlog(int gravity){
+
     }
 
 }

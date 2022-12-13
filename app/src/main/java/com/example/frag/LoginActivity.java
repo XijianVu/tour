@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.frag.activity.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText emailLogin, passwordLogin;
     Button btnLogin;
+    Button btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,12 @@ public class LoginActivity extends AppCompatActivity {
 
         initViews();
 
+
+ initListener();
+        
+    }
+
+    private void initListener() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +45,31 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-        
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(view.getContext(), RegisterActivity.class);
+
+//                Toast.makeText(view.getContext(),"dang ki",Toast.LENGTH_SHORT).show();
+                view.getContext().startActivity(intent2);
+            }
+        });
+    }
+
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.btnLogin:
+                //onClickLogin();
+                Toast.makeText(view.getContext(),"dang nhap",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnRegister:
+                Intent intent2 = new Intent(LoginActivity.this, RegisterActivity.class);
+                Toast.makeText(view.getContext(),"dang ki",Toast.LENGTH_SHORT).show();
+                startActivity(intent2);
+                break;
+            default:
+                break;
+        }
     }
 
     private void onClickLogin() {
@@ -65,7 +98,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initViews() {
         btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
         emailLogin = findViewById(R.id.emailLogin);
         passwordLogin = findViewById(R.id.passwordLogin);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
     }
 }
