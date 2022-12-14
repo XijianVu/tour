@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText emailLogin, passwordLogin;
     Button btnLogin;
-    Button btnRegister;
+    TextView btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         initViews();
 
 
- initListener();
+        initListener();
         
     }
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void onClick(View view){
+    /*public void onClick(View view){
         switch (view.getId()){
             case R.id.btnLogin:
                 //onClickLogin();
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 break;
         }
     }
-
+*/
     private void onClickLogin() {
         String strEmail = emailLogin.getText().toString().trim();
         String strPassword = passwordLogin.getText().toString().trim();
@@ -103,8 +103,5 @@ public class LoginActivity extends AppCompatActivity {
         passwordLogin = findViewById(R.id.passwordLogin);
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
+
 }

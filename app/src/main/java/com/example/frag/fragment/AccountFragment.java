@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.frag.Login;
@@ -66,27 +67,64 @@ public class AccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
-        Button btnLogin = view.findViewById(R.id.btnLogin);
+        Button btnLogout = view.findViewById(R.id.btnLogout);
         TextView tvName =view.findViewById(R.id.tvName);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        //getProfile();
+        /*btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 //tvName.setVisibility(View.VISIBLE);
-                //getProfile();
+
                 startActivity(intent);
             }
-        });
-
+        });*/
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail().toString().trim();
+        tvName.setText(email);
+        //blog_add.setVisibility(View.VISIBLE);
         LinearLayout blog_add = view.findViewById(R.id.blog_add);
-        blog_add.setOnClickListener(new View.OnClickListener() {
+
+        /*blog_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), Blog_add.class);
                 startActivity(intent);
             }
+        });*/
+
+        if ( email.equals("admin@gmail.com") )
+        {
+            blog_add.setVisibility(View.VISIBLE);
+            blog_add.setOnClickListener(new Button.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getActivity(), Blog_add.class);
+                    startActivity(intent);
+                    Toast.makeText(getContext(), "DOne", Toast.LENGTH_LONG).show();
+                }
+            });
+        } else {
+            blog_add.setVisibility(View.INVISIBLE);
+        }
+
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                tvName.setText("Bạn chưa đăng nhập");
+
+                //btnLogout.setVisibility(View.VISIBLE);
+                //imageView.setVisibility(View.GONE);
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+            }
         });
+
+
+
         return view;
     }
     private void getProfile() {
@@ -99,7 +137,7 @@ public class AccountFragment extends Fragment {
 
         tvName.setText(email);
 
-       /* btnLogin.setVisibility(View.VISIBLE);
+       /*btnLogin.setVisibility(View.VISIBLE);
         blog_add.setVisibility(View.VISIBLE);
         btnLogout.setVisibility(View.VISIBLE);*/
 

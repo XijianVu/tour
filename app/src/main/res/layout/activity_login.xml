@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
 
@@ -18,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:visibility="invisible"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
@@ -131,7 +130,7 @@
                 android:backgroundTint="#7E7575"
                 android:textColor="@color/white"
                 />
-            <Button
+            <TextView
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
