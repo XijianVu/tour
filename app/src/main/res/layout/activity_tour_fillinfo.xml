@@ -278,65 +278,30 @@
                                 android:layout_marginLeft="15dp"
                                 android:text="như trên CMND (không dấu)"/>
 
-                            <LinearLayout
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-                                <LinearLayout
-                                    android:layout_width="120dp"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <com.google.android.material.textfield.TextInputLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                android:layout_height="wrap_content">
 
-                                        <EditText
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:textSize="15sp"
-                                            android:layout_centerHorizontal="true"
-                                            android:layout_centerVertical="true"
-                                            android:backgroundTint="@color/white"
-                                            android:ems="10"
-                                            android:hint="Mã quốc gia" />
-
-                                    </com.google.android.material.textfield.TextInputLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
+                                <EditText
+                                    android:id="@+id/edPhoneCustom"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <com.google.android.material.textfield.TextInputLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
+                                    android:textSize="15sp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@color/white"
+                                    android:ems="10"
+                                    android:hint="Điện thoại di động" />
 
-                                        <EditText
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:textSize="15sp"
-                                            android:layout_centerHorizontal="true"
-                                            android:layout_centerVertical="true"
-                                            android:backgroundTint="@color/white"
-                                            android:ems="10"
-                                            android:hint="Điện thoại di động" />
-
-                                    </com.google.android.material.textfield.TextInputLayout>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
+                            </com.google.android.material.textfield.TextInputLayout>
 
                             <com.google.android.material.textfield.TextInputLayout
 
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                >
+                                android:layout_height="wrap_content" >
 
                                 <EditText
-
+                                    android:id="@+id/edEmailCustom"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_centerHorizontal="true"
