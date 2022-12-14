@@ -106,6 +106,8 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
         holder.blog_edit.setOnClickListener(new View.OnClickListener() {
 
             private DatabaseReference ref;
+
+
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(view.getContext());
@@ -127,33 +129,42 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                     }
                 });
 
+
                 Button btn_edit_blog = dialog.findViewById(R.id.btn_edit_blog);
                 EditText blog_edit_descripcion = dialog.findViewById(R.id.blog_edit_descripcion);
                 EditText blog_edit_purl = dialog.findViewById(R.id.blog_edit_purl);
                 EditText blog_edit_titulo = dialog.findViewById(R.id.blog_edit_titulo);
 
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                ref = database.getReference();
+
                 btn_edit_blog.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        ref = database.getReference();
-
                         String descripcion = blog_edit_descripcion.getText().toString();
                         String purl =blog_edit_purl.getText().toString();
                         String titulo = blog_edit_titulo.getText().toString();
 
                         Blog blog = new Blog(descripcion,purl,titulo);
                         ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
-                        ref.setValue(blog, new DatabaseReference.CompletionListener() {
+
+                        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
+                        Query applesQuery = ref1.child("blog").orderByChild("titulo").equalTo(model.getTitulo());
+                        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                Toast.makeText(view.getContext(),"Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                                    appleSnapshot.getRef().removeValue();
+                                    Toast.makeText(view.getContext(),"Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
                             }
                         });
-
                     }
                 });
-
                 dialog.show();
             }
         });

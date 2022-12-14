@@ -140,6 +140,34 @@
                         android:layout_height="wrap_content"
                         android:text="Như một nét chấm phá độc đáo giữa tòa nhà thế kỷ, vườn treo Babylon mang vẻ đẹp mê đắm lòng người với đường dạo trên cao giữa xanh tươi cây cỏ, cầu gỗ bắc ngang những ao cá Koi, cùng hàng trăm vườn treo thu nhỏ nuôi dưỡng những giống hoa quý hiếm. Từ trên cao nhìn xuống, vườn treo Babylon như nối dài sắc xanh của ban công Sky Villa, đồng thời ôm trọn tuyệt tác thiên nhiên vào trong lòng tòa ốc đảo."/>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_edit_tour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:backgroundTint="#68D3DAE8"
+                        android:textColor="#4267b2"
+                        android:text="Chỉnh sửa tour" />
+
+                    <Button
+                        android:id="@+id/btn_remove_tour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:backgroundTint="#68D3DAE8"
+                        android:textColor="#4267b2"
+                        android:text="Xoá tour" />
+
+
+                </LinearLayout>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </ScrollView>
 

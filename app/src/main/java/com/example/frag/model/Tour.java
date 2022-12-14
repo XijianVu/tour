@@ -17,7 +17,7 @@ public class Tour {
 
     }
 
-    public Tour(String resourceId, String name, String pricePeople, String priceChild, String timeTour, String placeTour, String placeStart, String about) {
+    public Tour(String about, String name, String placeStart, String placeTour, String priceChild, String pricePeople, String resourceId, String timeTour) {
         this.resourceId = resourceId;
         this.name = name;
         this.pricePeople = pricePeople;

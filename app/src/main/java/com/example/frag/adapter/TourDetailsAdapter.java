@@ -1,10 +1,14 @@
 package com.example.frag.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.frag.R;
 import com.example.frag.model.TourPhoto;
 import com.example.frag.model.Tour;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +52,7 @@ public class TourDetailsAdapter extends RecyclerView.Adapter<TourDetailsAdapter.
             return;
         }
         holder.imgPhoto.setImageResource(tourPhoto.getResourceID());
+
     }
 
     @Override
@@ -59,6 +70,7 @@ public class TourDetailsAdapter extends RecyclerView.Adapter<TourDetailsAdapter.
         public PhotoViewHoder(@NonNull View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.imgTourDetails);
+
         }
     }
 }

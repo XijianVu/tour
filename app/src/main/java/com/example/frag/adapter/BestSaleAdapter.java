@@ -1,10 +1,13 @@
 package com.example.frag.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,12 @@ import com.example.frag.model.Blog;
 import com.example.frag.model.Tour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -68,12 +77,16 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
                 context.startActivity(intent);
             }
         });
+
     }
 
     public class TourViewHolder extends RecyclerView.ViewHolder
     {
         ImageView resourceId;
         TextView about,name,placeStart,placeTour,priceChild,pricePeople,timeTour;
+
+        Button btn_edit_tour;
+        Button btn_remove_tour;
 
         public TourViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -86,6 +99,9 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
             pricePeople=itemView.findViewById(R.id.pricePeople);
             resourceId=itemView.findViewById(R.id.img_slider);
             timeTour=itemView.findViewById(R.id.timeTour);
+
+            btn_edit_tour = itemView.findViewById(R.id.btn_edit_tour);
+            btn_remove_tour = itemView.findViewById(R.id.btn_remove_tour);
 
         }
     }
