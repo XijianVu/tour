@@ -20,6 +20,7 @@ import com.example.frag.LoginActivity;
 import com.example.frag.MainActivity;
 import com.example.frag.R;
 import com.example.frag.activity.Blog_add;
+import com.example.frag.activity.Tour_add;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

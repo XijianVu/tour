@@ -7,9 +7,9 @@ public class Blog {
     }
 
     public Blog(String descripcion, String purl,  String titulo) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
         this.purl = purl;
+        this.descripcion = descripcion;
+        this.titulo = titulo;
     }
 
     public String getTitulo() {
