@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -102,6 +104,8 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
         });
 
         holder.blog_edit.setOnClickListener(new View.OnClickListener() {
+
+            private DatabaseReference ref;
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(view.getContext());
@@ -115,8 +119,46 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                 window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
                 window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+                Button btn_cancle_blog = dialog.findViewById(R.id.btn_cancle_blog);
+                btn_cancle_blog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                Button btn_edit_blog = dialog.findViewById(R.id.btn_edit_blog);
+                EditText blog_edit_descripcion = dialog.findViewById(R.id.blog_edit_descripcion);
+                EditText blog_edit_purl = dialog.findViewById(R.id.blog_edit_purl);
+                EditText blog_edit_titulo = dialog.findViewById(R.id.blog_edit_titulo);
+
+                btn_edit_blog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        ref = database.getReference();
+
+                        String descripcion = blog_edit_descripcion.getText().toString();
+                        String purl =blog_edit_purl.getText().toString();
+                        String titulo = blog_edit_titulo.getText().toString();
+
+                        Blog blog = new Blog(descripcion,purl,titulo);
+                        ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
+                        ref.setValue(blog, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                Toast.makeText(view.getContext(),"Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                });
+
+                dialog.show();
             }
         });
+
+
 
 
 

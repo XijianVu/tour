@@ -87,13 +87,34 @@
                     android:ems="10"
                     android:hint="titulo" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btn_push_blog"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cập nhật blog"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_edit_blog"
+                    android:layout_width="170dp"
+                    android:layout_height="65dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:backgroundTint="#68D3DAE8"
+                    android:textColor="#4267b2"
+                    android:text="Cập nhật blog" />
+
+                <Button
+                    android:id="@+id/btn_cancle_blog"
+                    android:layout_width="170dp"
+                    android:layout_height="65dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:backgroundTint="#DD4B39"
+                    android:textColor="#F1F2F3"
+                    android:text="Thoát" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
