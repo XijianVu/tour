@@ -13,15 +13,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.frag.R;
+import com.example.frag.model.Ticket;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Tour_FillInfo extends AppCompatActivity {
     private Button btnPay;
     private TextView tvTitle;
     private TextView tvTourName, tvPeople_amount, tvChild_amount, tvPriceTotal;
-    private TextView tvNameCustomer;
-    private EditText edNameCustomer;
+
+    private EditText edNameCustomer, edPhoneCustom, edEmailCustom;
     private TextView tvAmountTicketChild, tvAmountTicketPeople, tvPricePeople, tvPriceChild;
+
+    private DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,13 @@ public class Tour_FillInfo extends AppCompatActivity {
 
         initViews();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail().toString().trim();
+
         Bundle bundle = getIntent().getExtras();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        ref = database.getReference();
+
 
         String name = bundle.getString("name");
         String pricePeople = bundle.getString("pricePeople");
@@ -58,6 +71,20 @@ public class Tour_FillInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Tour_FillInfo.this, Tour_PaySuccess.class);
+                String nameCustom = edNameCustomer.getText().toString();
+                String phoneCustom =edPhoneCustom.getText().toString();
+                String emailCustom = edEmailCustom.getText().toString();
+
+               String timeTour ="dsdg";
+                String placeTour = "placeTour";
+                String placeStart = "placeStart";
+
+                int a =email.indexOf("@");
+
+                String email1 = email.substring(0, a);
+
+                Ticket ticket = new Ticket(nameCustom,people_amount,child_amount,name,timeTour,placeTour,placeStart,pricePeople,priceChild,phoneCustom,emailCustom);
+                ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getName())).setValue(ticket);
 
                 startActivity(intent);
             }
@@ -92,6 +119,8 @@ public class Tour_FillInfo extends AppCompatActivity {
         tvTourName = findViewById(R.id.tvTourName);
 
         edNameCustomer = findViewById(R.id.edNameCustomer);
+        edPhoneCustom = findViewById(R.id.edPhoneCustom);
+        edEmailCustom = findViewById(R.id.edEmailCustom);
         btnPay = findViewById(R.id.btnPay);
 
         tvPeople_amount = findViewById(R.id.tvPeople_amount);
