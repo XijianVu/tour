@@ -1,14 +1,21 @@
 package com.example.frag.fragment;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
+
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,11 +31,17 @@ import com.example.frag.model.Tour2;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.internal.cache.DiskLruCache;
 
 public class HomeFragment extends Fragment {
 
@@ -42,12 +55,13 @@ public class HomeFragment extends Fragment {
     private TabLayout tabLayout;
 
     private ArrayList<Tour> arrayList;
-    private RecyclerView home1_viewpager1,home1_viewpager2;
+    private RecyclerView home1_viewpager1;
+
+    private MenuItem menuItem;
+    private SearchView searchView;
 
 
     FirebaseRecyclerAdapter<Tour, BestSaleAdapter.TourViewHolder> adapter;
-
-
     private DatabaseReference ref;
 
     public HomeFragment() {
@@ -64,11 +78,51 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
-
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        menuItem = menu.findItem(R.id.searchId);
+        inflater.inflate(R.menu.menu_item,menu);
+        searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.searchId));
+        searchView.setIconified(true);
+
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mysearch(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mysearch(query);
+
+                return true;
+            }
+        });
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void mysearch(String query) {
+
+        FirebaseRecyclerOptions<Tour> optionBestSale =
+                new FirebaseRecyclerOptions.Builder<Tour>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("tour").orderByChild("name").startAt(query).endAt(query + "\uf8ff"), Tour.class)
+                        .build();
+
+
+        photo1Adapter = new BestSaleAdapter(optionBestSale);
+        photo1Adapter.startListening();
+        home1_viewpager1.setAdapter(photo1Adapter);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,12 +137,15 @@ public class HomeFragment extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("tour"), Tour.class)
                         .build();
 
-
         adapter=new BestSaleAdapter(optionBestSale);
         home1_viewpager1.setAdapter(adapter);
 
+
+
         return view;
     }
+
+
     @Override
     public void onStart() {
         super.onStart();
@@ -108,5 +165,6 @@ public class HomeFragment extends Fragment {
         listitem=new ArrayList<>();
 
     }
+
 
 }

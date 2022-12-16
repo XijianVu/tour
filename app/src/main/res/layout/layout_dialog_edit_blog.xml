@@ -87,7 +87,13 @@
                     android:ems="10"
                     android:hint="titulo" />
             </com.google.android.material.textfield.TextInputLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
                 <Button
                     android:id="@+id/btn_edit_blog"
                     android:layout_width="170dp"
@@ -105,6 +111,7 @@
                     android:backgroundTint="#DD4B39"
                     android:textColor="#F1F2F3"
                     android:text="Thoát" />
+            </LinearLayout>
 
 
             </LinearLayout>
