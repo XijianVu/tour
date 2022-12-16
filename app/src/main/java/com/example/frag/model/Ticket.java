@@ -17,7 +17,14 @@ public class Ticket {
 
     }
 
-    public Ticket(String name, int people_amount, int child_amount, String nameTour, String timeTour, String placeTour, String placeStart, String pricePeople, String priceChild,  String phoneCustom, String emailCustom, String time) {
+    public Ticket(String nameTour,String placeTour, String priceChild,  String timeTour) {
+        this.nameTour = nameTour;
+        this.timeTour = timeTour;
+        this.placeTour = placeTour;
+        this.priceChild = priceChild;
+    }
+
+    /*public Ticket(String name, int people_amount, int child_amount, String nameTour, String timeTour, String placeTour, String placeStart, String pricePeople, String priceChild, String phoneCustom, String emailCustom, String time) {
         this.name = name;
         this.people_amount = people_amount;
         this.child_amount = child_amount;
@@ -31,7 +38,7 @@ public class Ticket {
         this.emailCustom = emailCustom;
         this.time = time;
 
-    }
+    }*/
 
     public String getName() {
         return name;

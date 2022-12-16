@@ -1,8 +1,6 @@
 package com.example.frag.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,20 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.frag.R;
-import com.example.frag.activity.BlogDetail;
 import com.example.frag.activity.TourDetails;
-import com.example.frag.model.Blog;
 import com.example.frag.model.Tour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapter.TourViewHolder> {
 
@@ -39,11 +27,10 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
     }
 
 
-
     @NonNull
     @Override
     public BestSaleAdapter.TourViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_photo,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_photo, parent, false);
         return new BestSaleAdapter.TourViewHolder(view);
     }
 
@@ -56,6 +43,7 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
         holder.priceChild.setText(model.getPriceChild());
         holder.pricePeople.setText(model.getPricePeople());
         holder.timeTour.setText(model.getTimeTour());
+        holder.sdt.setText(model.getSdt());
 
         Glide.with(holder.resourceId.getContext()).load(model.getResourceId()).into(holder.resourceId);
 
@@ -72,7 +60,8 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
                 intent.putExtra("timeTour", model.getTimeTour());
                 intent.putExtra("pricePeople", model.getPricePeople());
                 intent.putExtra("priceChild", model.getPriceChild());
-                Toast.makeText(context,  model.getName(), Toast.LENGTH_SHORT).show();
+                intent.putExtra("sdt", model.getSdt());
+                Toast.makeText(context, model.getName(), Toast.LENGTH_SHORT).show();
 
                 context.startActivity(intent);
             }
@@ -80,10 +69,9 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
 
     }
 
-    public class TourViewHolder extends RecyclerView.ViewHolder
-    {
+    public class TourViewHolder extends RecyclerView.ViewHolder {
         ImageView resourceId;
-        TextView about,name,placeStart,placeTour,priceChild,pricePeople,timeTour;
+        TextView about, name, placeStart, placeTour, priceChild, pricePeople, timeTour,sdt;
 
         Button btn_edit_tour;
         Button btn_remove_tour;
@@ -91,80 +79,19 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
         public TourViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            about=itemView.findViewById(R.id.about);
-            name=itemView.findViewById(R.id.name);
-            placeStart=itemView.findViewById(R.id.placeStart);
-            placeTour=itemView.findViewById(R.id.placeTour);
-            priceChild=itemView.findViewById(R.id.priceChild);
-            pricePeople=itemView.findViewById(R.id.pricePeople);
-            resourceId=itemView.findViewById(R.id.img_slider);
-            timeTour=itemView.findViewById(R.id.timeTour);
+            about = itemView.findViewById(R.id.about);
+            name = itemView.findViewById(R.id.name);
+            placeStart = itemView.findViewById(R.id.placeStart);
+            placeTour = itemView.findViewById(R.id.placeTour);
+            priceChild = itemView.findViewById(R.id.priceChild);
+            pricePeople = itemView.findViewById(R.id.pricePeople);
+            resourceId = itemView.findViewById(R.id.img_slider);
+            timeTour = itemView.findViewById(R.id.timeTour);
+            sdt = itemView.findViewById(R.id.sdt);
 
             btn_edit_tour = itemView.findViewById(R.id.btn_edit_tour);
             btn_remove_tour = itemView.findViewById(R.id.btn_remove_tour);
 
         }
     }
-
-/*
-    @NonNull
-    @Override
-    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_photo, parent, false);
-        return new UserViewHolder(view);
-    }
-
-    @Override
-    public int getItemCount() {
-        return arrayList.size();
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        Tour user = arrayList.get(position);
-        if (user == null) {
-            return;
-        }
-        holder.imgResource.setImageResource(user.getResourceId());
-        holder.name.setText(user.getName());
-        holder.price.setText(user.getPricePeople());
-    }
-
-    public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private ImageView imgResource;
-        private TextView name, timeTour, placeTour, placeStart;
-        private TextView price;
-        private TextView about;
-
-        public UserViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            imgResource = itemView.findViewById(R.id.img_slider);
-            name = itemView.findViewById(R.id.name);
-            timeTour = itemView.findViewById(R.id.timeTour);
-            placeTour = itemView.findViewById(R.id.placeTour);
-            placeStart = itemView.findViewById(R.id.placeStart);
-            price = itemView.findViewById(R.id.price);
-            about = itemView.findViewById(R.id.tourtrend);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int postion = getAdapterPosition();
-            Toast.makeText(context, "postion" + postion, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context, TourDetails.class);
-            intent.putExtra("image", arrayList.get(postion).getResourceId());
-            intent.putExtra("name", arrayList.get(postion).getName());
-            intent.putExtra("timeTour", arrayList.get(postion).getTimeTour());
-            intent.putExtra("placeTour", arrayList.get(postion).getPlaceTour());
-            intent.putExtra("placeStart", arrayList.get(postion).getPlaceStart());
-            intent.putExtra("price", arrayList.get(postion).getPricePeople());
-            intent.putExtra("about", arrayList.get(postion).getAbout());
-
-            context.startActivity(intent);
-        }
-    }
-
- */
 }

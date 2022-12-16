@@ -85,15 +85,16 @@ public class Tour_FillInfo extends AppCompatActivity {
                 String placeTour = "placeTour";
                 String placeStart = "placeStart";
 
-                int a =email.indexOf("@");
+
 
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat  format = new SimpleDateFormat("dd-MM-yyyyHH:mm:ss");
                 String time = format.format(c.getTime());
 
+                int a =email.indexOf("@");
                 String email1 = email.substring(0, a);
 
-                Ticket ticket = new Ticket(nameCustom,people_amount,child_amount,name,timeTour,placeTour,placeStart,pricePeople,priceChild,phoneCustom,emailCustom, time);
+                Ticket ticket = new Ticket(name,placeTour,priceChild,timeTour);
                 ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
                 startActivity(intent);

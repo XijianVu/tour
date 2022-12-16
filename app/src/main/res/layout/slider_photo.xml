@@ -72,5 +72,13 @@
             android:visibility="invisible"
             android:textColor="@color/black"
             android:text="about"/>
+        <TextView android:id="@+id/sdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:visibility="invisible"
+            android:textColor="@color/black"
+            android:text="about"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

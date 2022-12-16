@@ -1,24 +1,20 @@
 package com.example.frag.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Tour {
+public class Tour2 {
     String resourceId;
     String name;
-    String pricePeople;
+    String pricePeople ;
     String priceChild;
     String timeTour;
     String placeTour;
     String placeStart;
     String about;
-    String sdt;
 
-    public Tour() {
+    public Tour2(){
 
     }
 
-    public Tour(String about, String name, String placeStart, String placeTour, String priceChild, String pricePeople, String resourceId, String timeTour, String sdt) {
+    public Tour2(String about, String name, String placeStart, String placeTour, String priceChild, String pricePeople, String resourceId, String timeTour) {
         this.resourceId = resourceId;
         this.name = name;
         this.pricePeople = pricePeople;
@@ -27,7 +23,6 @@ public class Tour {
         this.placeTour = placeTour;
         this.placeStart = placeStart;
         this.about = about;
-        this.sdt = sdt;
     }
 
     public String getResourceId() {
@@ -93,15 +88,4 @@ public class Tour {
     public void setAbout(String about) {
         this.about = about;
     }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
 }
-
-
-

@@ -50,6 +50,7 @@ public class TourDetails extends AppCompatActivity {
     private TextView timeTour;
     private TextView placeStart;
     private TextView tourtrend, tvPrice;
+    private TextView sdt;
     private Button btnTimTour;
     private Tour itemDetail;
 
@@ -72,6 +73,7 @@ public class TourDetails extends AppCompatActivity {
         String pricePeople = bundle.getString("pricePeople");
         String priceChild = bundle.getString("priceChild");
         String about = bundle.getString("about");
+        String sdt = bundle.getString("sdt");
 
 
         Picasso.get().load(image).into(viewPagerdetails);
@@ -185,8 +187,9 @@ public class TourDetails extends AppCompatActivity {
                         String pricePeople = tour_edit_pricePeople.getText().toString();
                         String resourceId = tour_edit_resourceId.getText().toString();
                         String timeTour = tour_edit_timeTour.getText().toString();
+                        String sdt = tour_edit_timeTour.getText().toString();
 
-                        Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour);
+                        Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
                         ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
 
                         DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
@@ -224,6 +227,7 @@ public class TourDetails extends AppCompatActivity {
         placeTour = findViewById(R.id.placeTour);
         placeStart = findViewById(R.id.placeStart);
         btnTimTour = findViewById(R.id.btnTimTour);
+
 
         btn_edit_tour = findViewById(R.id.btn_edit_tour);
         btn_remove_tour = findViewById(R.id.btn_remove_tour);
