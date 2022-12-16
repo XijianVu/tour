@@ -93,6 +93,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:textSize="16sp"
+                                    android:textColor="@color/black"
                                     android:text="Điểm khởi hành:"/>
                                 <TextView
                                     android:id="@+id/placeTour"
@@ -100,6 +101,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:textSize="16sp"
+                                    android:textColor="@color/black"
                                     android:text="Hồ Chí Minh"/>
 
                             </LinearLayout>
@@ -124,6 +126,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="5dp"
                                             android:text="Người lớn: "
+                                            android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <TextView
@@ -132,6 +135,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="5dp"
                                             android:text="1 "
+                                            android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                     </LinearLayout>
@@ -148,6 +152,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="5dp"
                                             android:text="Trẻ em: "
+                                            android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <TextView
@@ -156,6 +161,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="5dp"
                                             android:text="1 "
+                                            android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                     </LinearLayout>
@@ -194,11 +200,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:textSize="16sp"
+                            android:textColor="@color/black"
                             android:text="Thoi gian di Tour"/>
                         <TextView
                             android:id="@+id/timeTour"
                             android:layout_marginLeft="10dp"
                             android:textSize="16sp"
+                            android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Time"/>
@@ -206,12 +214,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="5dp"
                             android:text="Noi khoi hanh"/>
                         <TextView
                             android:id="@+id/placeStart"
                             android:layout_marginLeft="10dp"
                             android:textSize="16sp"
+                            android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Place"/>
@@ -266,6 +276,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerHorizontal="true"
                                     android:layout_centerVertical="true"
+                                    android:textColor="@color/black"
                                     android:backgroundTint="@color/white"
                                     android:ems="10"
                                     android:hint="Họ tên" />
@@ -276,6 +287,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
+                                android:textColor="#504F4F"
                                 android:text="như trên CMND (không dấu)"/>
 
                             <com.google.android.material.textfield.TextInputLayout
@@ -287,6 +299,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textSize="15sp"
+                                    android:textColor="@color/black"
                                     android:layout_centerHorizontal="true"
                                     android:layout_centerVertical="true"
                                     android:backgroundTint="@color/white"
@@ -307,6 +320,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_centerVertical="true"
                                     android:backgroundTint="@color/white"
+                                    android:textColor="@color/black"
                                     android:ems="10"
                                     android:hint="Email" />
 
@@ -316,6 +330,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
+                                android:textColor="#504F4F"
                                 android:text="VD: email@example.com"/>
 
                         </LinearLayout>
@@ -372,21 +387,25 @@
                                 android:layout_marginHorizontal="20dp"
                                 >
                                 <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Người lớn  "
-                                android:textSize="16sp"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Người lớn  "
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/tvAmountTicketPeople"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="(1)"
+
+                                    android:textColor="@color/black"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/tvPricePeople"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
+                                    android:textColor="@color/black"
                                     android:text="120.000 VND"
                                     android:textSize="16sp"
                                     />
@@ -405,6 +424,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Trẻ em  "
+                                    android:textColor="@color/black"
                                     android:textSize="16sp"/>
 
                                 <TextView
@@ -412,12 +432,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="(2)"
+                                    android:textColor="@color/black"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/tvPriceChild"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
+                                    android:textColor="@color/black"
                                     android:text="120.000 VND"
                                     android:textSize="16sp"
                                     />

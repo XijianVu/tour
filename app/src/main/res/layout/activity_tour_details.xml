@@ -24,6 +24,7 @@
 
                 android:orientation="vertical">
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -33,13 +34,7 @@
                         android:layout_margin="15dp"
                         android:layout_height="220dp"
                         android:background="@drawable/a1"/>
-                    <me.relex.circleindicator.CircleIndicator3
-                        android:id="@+id/cicleIddetails"
-                        android:layout_width="wrap_content"
-                        app:ci_drawable="@drawable/bgindicater3"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_horizontal"
-                        />
+
                 </LinearLayout>
                 <LinearLayout android:id="@+id/tourAD"
                     android:layout_width="match_parent"
@@ -61,6 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:text="Place"/>
 
@@ -70,11 +66,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:text="Thoi gian di Tour"/>
                     <TextView
                         android:id="@+id/timeTour"
                         android:layout_marginLeft="10dp"
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time"/>
@@ -82,20 +80,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:layout_marginTop="5dp"
                         android:text="Noi khoi hanh"/>
                     <TextView
                         android:id="@+id/placeStart"
                         android:layout_marginLeft="10dp"
                         android:textSize="16sp"
+                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Place"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:text="Lịch trình tour : "/>
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -123,6 +119,7 @@
                         android:id="@+id/tourtrend"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:text="Tổ hợp xông hơi Jjimjilbang Flamingo Đại Lải Resort có 7 phòng chức năng: Đá Quý, Hoàng Thổ, Ion và Sắc màu, Đá muối, Đá núi lửa, Oxy - Hinoki, Phòng tuyết và hang xông hồng ngoại. Các phòng xông hơi được kết hợp sử dụng các nguyên liệu đặc biệt, có lợi cho sức khỏe, đồng thời giữ được nguyên bản mô hình xông hơi Jjimjilbang cộng đồng của xứ kim chi."/>
                 </LinearLayout>
                 <LinearLayout

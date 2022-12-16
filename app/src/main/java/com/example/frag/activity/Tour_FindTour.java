@@ -141,6 +141,7 @@ public class Tour_FindTour extends AppCompatActivity {
                 intent.putExtra("priceChild", priceChild);
                 intent.putExtra("_counter_people", _counter_people);
                 intent.putExtra("_counter_child", _counter_child);
+                intent.putExtra("timeTour", formattedDate);
                 startActivity(intent);
             }
         });

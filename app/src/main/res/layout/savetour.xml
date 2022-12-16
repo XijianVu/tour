@@ -44,7 +44,7 @@
                     android:id="@+id/tvAttract"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:text="Attraction and Activities"
+
                     android:textColor="#8C8585"
                     android:textSize="10dp" />
 
@@ -58,7 +58,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvRate"
+                    android:id="@+id/tvtimeTour"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:lineSpacingExtra="3dp"
@@ -67,7 +67,7 @@
                     android:textSize="10dp" />
 
                 <TextView
-                    android:id="@+id/tvLocation"
+                    android:id="@+id/placeTour"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:lineSpacingExtra="3dp"
@@ -83,7 +83,7 @@
                     android:id="@+id/ivSave"
                     android:layout_width="20dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon_save">
+                    >
 
                 </ImageView>
 

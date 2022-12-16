@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Tour_FillInfo extends AppCompatActivity {
     private Button btnPay;
@@ -48,6 +53,7 @@ public class Tour_FillInfo extends AppCompatActivity {
         String name = bundle.getString("name");
         String pricePeople = bundle.getString("pricePeople");
         String priceChild = bundle.getString("priceChild");
+        String timeTour = bundle.getString("timeTour");
         int people=Integer.parseInt(pricePeople);
         int child=Integer.parseInt(priceChild);
 
@@ -75,16 +81,20 @@ public class Tour_FillInfo extends AppCompatActivity {
                 String phoneCustom =edPhoneCustom.getText().toString();
                 String emailCustom = edEmailCustom.getText().toString();
 
-               String timeTour ="dsdg";
+
                 String placeTour = "placeTour";
                 String placeStart = "placeStart";
 
                 int a =email.indexOf("@");
 
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat  format = new SimpleDateFormat("dd-MM-yyyyHH:mm:ss");
+                String time = format.format(c.getTime());
+
                 String email1 = email.substring(0, a);
 
-                Ticket ticket = new Ticket(nameCustom,people_amount,child_amount,name,timeTour,placeTour,placeStart,pricePeople,priceChild,phoneCustom,emailCustom);
-                ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getName())).setValue(ticket);
+                Ticket ticket = new Ticket(nameCustom,people_amount,child_amount,name,timeTour,placeTour,placeStart,pricePeople,priceChild,phoneCustom,emailCustom, time);
+                ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
                 startActivity(intent);
             }

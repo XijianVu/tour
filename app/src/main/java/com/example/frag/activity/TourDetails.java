@@ -66,7 +66,7 @@ public class TourDetails extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String image = bundle.getString("image");
         String name = bundle.getString("name");
-        String time = bundle.getString("timeTour");
+        String timeTour = bundle.getString("timeTour");
         String place = bundle.getString("placeTour");
         String startPlace = bundle.getString("placeStart");
         String pricePeople = bundle.getString("pricePeople");
@@ -77,7 +77,7 @@ public class TourDetails extends AppCompatActivity {
         Picasso.get().load(image).into(viewPagerdetails);
         //viewPagerdetails.setImageResource(image);
         tvTourName.setText(name);
-        timeTour.setText(time);
+
         placeTour.setText(place);
         placeStart.setText(startPlace);
         tvPrice.setText(pricePeople);
@@ -88,8 +88,13 @@ public class TourDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TourDetails.this, Tour_FindTour.class);
                 intent.putExtra("name", name);
+
+                intent.putExtra("timeTour", timeTour);
+                intent.putExtra("image", image);
+
                 intent.putExtra("pricePeople", pricePeople);
                 intent.putExtra("priceChild", priceChild);
+
                 startActivity(intent);
             }
         });
