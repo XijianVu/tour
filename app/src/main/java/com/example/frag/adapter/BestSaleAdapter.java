@@ -1,8 +1,6 @@
 package com.example.frag.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,20 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.frag.R;
-import com.example.frag.activity.BlogDetail;
 import com.example.frag.activity.TourDetails;
-import com.example.frag.model.Blog;
 import com.example.frag.model.Tour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapter.TourViewHolder> {
 

@@ -29,123 +29,18 @@
             />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="20dp"
             android:layout_marginRight="3dp"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Các tour bán chạy  "
-                android:paddingVertical="10dp"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"
-                />
-
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home1_viewpager1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                 />
+                android:paddingTop="20dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="3dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tour trong nước  "
-                android:paddingVertical="10dp"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"/>
-                />
-            <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tab1layout2"
-                app:tabMode="scrollable"
-                app:tabGravity="fill">
-            </com.google.android.material.tabs.TabLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home1_viewpager2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:layout_below="@id/tab1layout2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Du lịch khắp thế giới  "
-                android:paddingVertical="10dp"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"
-                />
-            <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tab1layout3"
-                app:tabMode="scrollable"
-                app:tabGravity="fill"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/home1_viewpager3"
-                android:paddingTop="20dp"
-                android:layout_below="@id/tab1layout3"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Khám phá thêm tour  "
-                android:paddingVertical="10dp"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"
-                />
-            <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tab1layout4"
-                app:tabMode="scrollable"
-                app:tabGravity="fill"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/home1_viewpager4"
-                android:paddingTop="20dp"
-                android:layout_below="@id/tab1layout4"/>
-        </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
