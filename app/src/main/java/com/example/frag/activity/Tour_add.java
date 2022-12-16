@@ -23,6 +23,7 @@ public class Tour_add extends AppCompatActivity {
     EditText edit_pricePeople;
     EditText edit_resourceId;
     EditText edit_timeTour;
+    EditText edit_sdt;
 
     private DatabaseReference ref1;
     @SuppressLint("MissingInflatedId")
@@ -40,6 +41,7 @@ public class Tour_add extends AppCompatActivity {
         edit_pricePeople = findViewById(R.id.tour_edit_pricePeople);
         edit_resourceId = findViewById(R.id.tour_edit_resourceId);
         edit_timeTour = findViewById(R.id.tour_edit_timeTour);
+        edit_sdt = findViewById(R.id.tour_edit_sdt);
 
         Button btnPushTour = findViewById(R.id.btn_push_tour);
 
@@ -57,9 +59,10 @@ public class Tour_add extends AppCompatActivity {
                 String pricePeople = edit_pricePeople.getText().toString();
                 String resourceId = edit_resourceId.getText().toString();
                 String timeTour = edit_timeTour.getText().toString();
+                String sdt   = edit_sdt.getText().toString();
 
 
-                Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour);
+                Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
                 ref1.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
 
             }

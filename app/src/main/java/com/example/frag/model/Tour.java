@@ -6,18 +6,19 @@ import java.util.Map;
 public class Tour {
     String resourceId;
     String name;
-    String pricePeople ;
+    String pricePeople;
     String priceChild;
     String timeTour;
     String placeTour;
     String placeStart;
     String about;
+    String sdt;
 
-    public Tour(){
+    public Tour() {
 
     }
 
-    public Tour(String about, String name, String placeStart, String placeTour, String priceChild, String pricePeople, String resourceId, String timeTour) {
+    public Tour(String about, String name, String placeStart, String placeTour, String priceChild, String pricePeople, String resourceId, String timeTour, String sdt) {
         this.resourceId = resourceId;
         this.name = name;
         this.pricePeople = pricePeople;
@@ -26,6 +27,7 @@ public class Tour {
         this.placeTour = placeTour;
         this.placeStart = placeStart;
         this.about = about;
+        this.sdt = sdt;
     }
 
     public String getResourceId() {
@@ -91,20 +93,15 @@ public class Tour {
     public void setAbout(String about) {
         this.about = about;
     }
-//    public Map<String, Boolean> stars = new HashMap<>();
-//    public Map<String, Object> toMap() {
-//        HashMap<String, Object> result = new HashMap<>();
-//        result.put("image", resourceId);
-//        result.put("name", name);
-//        result.put("about", about);
-//        result.put("placeStart", placeStart);
-//        result.put("placeTour", placeTour);
-//        result.put("pricePeople", pricePeople);
-//        result.put("priceChild", priceChild);
-//        result.put("timeTour", timeTour);
-//
-//        return result;
-//    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
 }
+
 
 
