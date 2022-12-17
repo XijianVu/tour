@@ -1,17 +1,21 @@
 package com.example.frag.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.frag.R;
+import com.example.frag.activity.MyTourDetail;
+import com.example.frag.activity.TourDetails;
 import com.example.frag.model.Ticket;
 import com.example.frag.model.item;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,9 +40,37 @@ public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.
         holder.tvTourName.setText(model.getNameTour());
         holder.tvtimeTour.setText(model.getTimeTour());
         holder.placeTour.setText(model.getPlaceTour());
-        holder.tvPrice.setText(model.getPriceChild());
+        holder.tvPrice.setText(model.getPriceTotal());
+        holder.phoneCustom.setText(model.getPhoneCustom());
+        holder.emailCustom.setText(model.getEmailCustom());
 
 
+        holder.placeStart.setText(model.getPlaceStart());
+
+
+
+        holder.imgItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, MyTourDetail.class);
+                intent.putExtra("tourName", model.getNameTour());
+                intent.putExtra("tvtimeTour", model.getTimeTour());
+                intent.putExtra("placeTour", model.getPlaceTour());
+                intent.putExtra("tvPrice", model.getPriceTotal());
+                intent.putExtra("phoneCustom", model.getPhoneCustom());
+                intent.putExtra("emailCustom", model.getEmailCustom());
+
+                intent.putExtra("people_amount", model.getPeople_amount());
+                intent.putExtra("child_amount", model.getChild_amount());
+
+
+
+
+
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -67,6 +99,9 @@ public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.
             people_amount = itemView.findViewById(R.id.people_amount);
             child_amount = itemView.findViewById(R.id.child_amount);
             placeStart = itemView.findViewById(R.id.placeStart);
+
+            phoneCustom = itemView.findViewById(R.id.phoneCustom);
+            emailCustom = itemView.findViewById(R.id.emailCustom);
 
 
 
@@ -119,3 +154,4 @@ public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.
     */
 
 }
+

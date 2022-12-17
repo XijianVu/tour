@@ -10,18 +10,34 @@ public class Ticket {
     String placeTour;
     String placeStart;
     String pricePeople ;
-    String priceChild;
+    String priceTotal;
     String time;
 
     public Ticket() {
 
     }
 
-    public Ticket(String nameTour,String placeTour, String priceChild,  String timeTour) {
+    public String getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(String priceTotal) {
+        this.priceTotal = priceTotal;
+    }
+
+    public Ticket(String nameTour, String placeTour, String priceTotal, String timeTour, String phoneCustom, String emailCustom, String placeStart) {
         this.nameTour = nameTour;
         this.timeTour = timeTour;
         this.placeTour = placeTour;
-        this.priceChild = priceChild;
+        this.priceTotal = priceTotal;
+        this.phoneCustom = phoneCustom;
+        this.emailCustom = emailCustom;
+        this.people_amount = people_amount;
+        this.child_amount = child_amount;
+        this.pricePeople = pricePeople;
+        this.placeStart = placeStart;
+        this.time = time;
+        this.name = name;
     }
 
     /*public Ticket(String name, int people_amount, int child_amount, String nameTour, String timeTour, String placeTour, String placeStart, String pricePeople, String priceChild, String phoneCustom, String emailCustom, String time) {
@@ -120,13 +136,7 @@ public class Ticket {
         this.pricePeople = pricePeople;
     }
 
-    public String getPriceChild() {
-        return priceChild;
-    }
 
-    public void setPriceChild(String priceChild) {
-        this.priceChild = priceChild;
-    }
 
     public String getTime() {
         return time;

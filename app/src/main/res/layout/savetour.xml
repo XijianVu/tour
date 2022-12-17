@@ -52,17 +52,18 @@
                 <TextView
                     android:id="@+id/tvtimeTour"
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="16dp"
                     android:lineSpacingExtra="3dp"
                     android:text="Time Tour"
-                    android:textColor="#8C8585"
+                    android:textColor="#4A4747"
                     android:textSize="10dp" />
 
                 <TextView
                     android:id="@+id/placeTour"
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="16dp"
                     android:lineSpacingExtra="3dp"
+                    android:textColor="#4A4747"
                     android:text="Place Tour"
                     android:textSize="10dp" />
 
@@ -75,6 +76,7 @@
                     android:id="@+id/ivSave"
                     android:layout_width="20dp"
                     android:layout_height="25dp"
+
                     >
 
                 </ImageView>
@@ -99,7 +101,62 @@
                 android:textColor="#C82929"
                 android:text="1.500.000/ person"/>
 
+            <TextView
+                android:id="@+id/phoneCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="phoneCustom"/>
+            <TextView
+                android:id="@+id/emailCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="emailCustom"/>
+            <TextView
+                android:id="@+id/people_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="people_amount"/>
+            <TextView
+                android:id="@+id/child_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="child_amount"/>
+            <TextView
+                android:id="@+id/pricePeople"
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                android:text="pricePeople"/>
+            <TextView
+                android:id="@+id/priceChild"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="priceChild"/>
 
+            <TextView
+                android:id="@+id/placeStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="placeStart"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="time"/>
+            <TextView
+                android:id="@+id/nameCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="time"/>
 
 
 

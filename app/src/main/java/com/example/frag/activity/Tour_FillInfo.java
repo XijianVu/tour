@@ -60,10 +60,10 @@ public class Tour_FillInfo extends AppCompatActivity {
         int people_amount = bundle.getInt("_counter_people");
         int child_amount = bundle.getInt("_counter_child");
         Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
-
+        String priceTotal = String.valueOf(people_amount*people+child_amount*child);
 
         tvTourName.setText(name);
-        tvPriceTotal.setText(String.valueOf(people_amount*people+child_amount*child));
+        tvPriceTotal.setText(priceTotal);
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
 
@@ -94,7 +94,7 @@ public class Tour_FillInfo extends AppCompatActivity {
                 int a =email.indexOf("@");
                 String email1 = email.substring(0, a);
 
-                Ticket ticket = new Ticket(name,placeTour,priceChild,timeTour);
+                Ticket ticket = new Ticket(name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart);
                 ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
                 startActivity(intent);

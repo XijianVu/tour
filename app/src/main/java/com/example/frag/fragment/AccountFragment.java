@@ -85,6 +85,7 @@ public class AccountFragment extends Fragment {
         tvName.setText(email);
         //blog_add.setVisibility(View.VISIBLE);
         LinearLayout blog_add = view.findViewById(R.id.blog_add);
+        LinearLayout tour_add = view.findViewById(R.id.tour_add);
 
         /*blog_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,11 +98,20 @@ public class AccountFragment extends Fragment {
         if ( email.equals("admin@gmail.com") )
         {
             blog_add.setVisibility(View.VISIBLE);
+            tour_add.setVisibility(View.VISIBLE);
             blog_add.setOnClickListener(new Button.OnClickListener()
             {
                 public void onClick(View v)
                 {
                     Intent intent = new Intent(getActivity(), Blog_add.class);
+                    startActivity(intent);
+                    Toast.makeText(getContext(), "DOne", Toast.LENGTH_LONG).show();
+                }
+            });
+            tour_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), Tour_add.class);
                     startActivity(intent);
                     Toast.makeText(getContext(), "DOne", Toast.LENGTH_LONG).show();
                 }

@@ -75,13 +75,19 @@ public class TicketFragment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        String email = user.getEmail().toString().trim();
+
+        int a =email.indexOf("@");
+        String email1 = email.substring(0, a);
+
 
         rcvmytour=(RecyclerView)view.findViewById(R.id.rcvmytour);
         rcvmytour.setLayoutManager(new LinearLayoutManager(getContext()));
 
         FirebaseRecyclerOptions<Ticket> options =
                 new FirebaseRecyclerOptions.Builder<Ticket>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ticket").child("admin"), Ticket.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ticket").child(email1.toString()), Ticket.class)
                         .build();
 
         adapter=new MyTourAdapter(options);
