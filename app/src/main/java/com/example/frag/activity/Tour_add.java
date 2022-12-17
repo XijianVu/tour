@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.frag.R;
 import com.example.frag.model.Tour;
@@ -25,28 +26,28 @@ public class Tour_add extends AppCompatActivity {
     EditText edit_timeTour;
     EditText edit_sdt;
 
-    private DatabaseReference ref1;
+    private DatabaseReference ref;
     @SuppressLint("MissingInflatedId")
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blog_add);
+        setContentView(R.layout.activity_tour_add);
 
-        edit_about = findViewById(R.id.tour_edit_about);
-        edit_name = findViewById(R.id.tour_edit_name);
-        edit_placeStart = findViewById(R.id.tour_edit_placeStart);
-        edit_placeTour = findViewById(R.id.tour_edit_placeTour);
-        edit_priceChild = findViewById(R.id.tour_edit_priceChild);
-        edit_pricePeople = findViewById(R.id.tour_edit_pricePeople);
-        edit_resourceId = findViewById(R.id.tour_edit_resourceId);
-        edit_timeTour = findViewById(R.id.tour_edit_timeTour);
-        edit_sdt = findViewById(R.id.tour_edit_sdt);
+        edit_about = findViewById(R.id.edit_about);
+        edit_name = findViewById(R.id.edit_name);
+        edit_placeStart = findViewById(R.id.edit_placeStart);
+        edit_placeTour = findViewById(R.id.edit_placeTour);
+        edit_priceChild = findViewById(R.id.edit_priceChild);
+        edit_pricePeople = findViewById(R.id.edit_pricePeople);
+        edit_resourceId = findViewById(R.id.edit_resourceId);
+        edit_timeTour = findViewById(R.id.edit_timeTour);
+        edit_sdt = findViewById(R.id.edit_sdt);
 
         Button btnPushTour = findViewById(R.id.btn_push_tour);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        ref1 = database.getReference();
+        ref = database.getReference();
 
         btnPushTour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +60,12 @@ public class Tour_add extends AppCompatActivity {
                 String pricePeople = edit_pricePeople.getText().toString();
                 String resourceId = edit_resourceId.getText().toString();
                 String timeTour = edit_timeTour.getText().toString();
-                String sdt   = edit_sdt.getText().toString();
+                String sdt  = edit_sdt.getText().toString();
 
 
                 Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
-                ref1.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+                ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+                Toast.makeText(view.getContext(),"Thêm tour thành công", Toast.LENGTH_SHORT).show();
 
             }
         });

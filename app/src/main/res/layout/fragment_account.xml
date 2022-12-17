@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:background="#DAD8D8">
+                android:background="#FFF8E1">
 
                 <TextView
                     android:layout_width="match_parent"

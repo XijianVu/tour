@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.frag.R;
 import com.example.frag.model.Blog;
@@ -45,6 +46,7 @@ public class Blog_add extends AppCompatActivity {
 
                 Blog blog = new Blog(descripcion,purl,titulo);
                 ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
+                Toast.makeText(view.getContext(),"Thêm blog thành công", Toast.LENGTH_SHORT).show();
 
             }
         });

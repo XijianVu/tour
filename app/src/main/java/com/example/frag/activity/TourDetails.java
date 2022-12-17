@@ -105,7 +105,7 @@ public class TourDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage("Are you sure you want to exit?")
+                builder.setMessage("Bạn muốn xoá tour này ?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -171,6 +171,7 @@ public class TourDetails extends AppCompatActivity {
                 EditText tour_edit_pricePeople = dialog.findViewById(R.id.tour_edit_pricePeople);
                 EditText tour_edit_resourceId = dialog.findViewById(R.id.tour_edit_resourceId);
                 EditText tour_edit_timeTour = dialog.findViewById(R.id.tour_edit_timeTour);
+                EditText tour_edit_sdt = dialog.findViewById(R.id.tour_edit_sdt);
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 ref = database.getReference();
@@ -187,7 +188,7 @@ public class TourDetails extends AppCompatActivity {
                         String pricePeople = tour_edit_pricePeople.getText().toString();
                         String resourceId = tour_edit_resourceId.getText().toString();
                         String timeTour = tour_edit_timeTour.getText().toString();
-                        String sdt = tour_edit_timeTour.getText().toString();
+                        String sdt = tour_edit_sdt.getText().toString();
 
                         Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
                         ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
@@ -227,6 +228,7 @@ public class TourDetails extends AppCompatActivity {
         placeTour = findViewById(R.id.placeTour);
         placeStart = findViewById(R.id.placeStart);
         btnTimTour = findViewById(R.id.btnTimTour);
+        sdt = findViewById(R.id.sdt);
 
 
         btn_edit_tour = findViewById(R.id.btn_edit_tour);

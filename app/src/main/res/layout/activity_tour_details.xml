@@ -31,8 +31,8 @@
                     <ImageView
                         android:id="@+id/viewPagerdetails"
                         android:layout_width="match_parent"
-                        android:layout_margin="15dp"
-                        android:layout_height="220dp"
+                        android:layout_height="250dp"
+                        android:scaleType="fitXY"
                         android:background="@drawable/a1"/>
 
                 </LinearLayout>
@@ -49,48 +49,68 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="22sp"
+                        android:paddingVertical="10dp"
                         android:textColor="@color/black"
                         android:text="Tour name" />
-                    <TextView
-                        android:id="@+id/placeTour"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:text="Place"/>
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:text="Thoi gian di Tour"/>
-                    <TextView
-                        android:id="@+id/timeTour"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Time"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:text="Noi khoi hanh"/>
-                    <TextView
-                        android:id="@+id/placeStart"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Place"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:text="Điểm đến trong hành trình : "/>
+                        <TextView
+                            android:id="@+id/placeTour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:text="Điểm đến"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:text="Thời gian đi tour : "/>
+                        <TextView
+                            android:id="@+id/timeTour"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="5dp"
+                            android:text="Nơi khởi hành : "/>
+                        <TextView
+                            android:id="@+id/placeStart"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Place"/>
+                    </LinearLayout>
 
                 </LinearLayout>
                 <LinearLayout
@@ -187,7 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gia tu"
+                    android:text="Mức giá chỉ từ : "
                     android:textSize="15sp"/>
                 <TextView
                     android:id="@+id/tvPrice"
@@ -204,9 +224,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center_vertical"
-                android:backgroundTint="#4886F1"
+                android:backgroundTint="#87A8D0"
                 android:layout_marginRight="20dp"
-                android:text="Tim tour"/>
+                android:text="Tiếp theo"/>
 
 
         </androidx.cardview.widget.CardView>

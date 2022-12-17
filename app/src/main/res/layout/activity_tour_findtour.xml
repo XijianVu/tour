@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="9"
-                    android:text="Nguoi lon"
+                    android:text="Người lớn"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="9"
-                    android:text="Tre em"
+                    android:text="Trẻ em"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -258,11 +258,11 @@
                     android:id="@+id/btnFillInfo"
                     android:layout_width="160dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="10dp"
-                    android:backgroundTint="#00587C"
-                    android:text="Tiep tuc"
-                    android:textColor="#F9FAFB" />
+                    android:backgroundTint="#08D9D6"
+                    android:text="Tiếp tục"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
