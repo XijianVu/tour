@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.AccountFragment;
 import com.example.frag.fragment.BlogFragment;
 import com.example.frag.model.Blog;
 import com.google.firebase.database.DatabaseReference;
@@ -56,7 +57,7 @@ public class Blog_add extends AppCompatActivity {
                     Blog blog = new Blog(descripcion, purl, titulo);
                     ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
                     Toast.makeText(view.getContext(), "Thêm blog thành công", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Blog_add.this, MainActivity.class);
+                    Intent intent = new Intent(Blog_add.this, AccountFragment.class);
                     startActivity(intent);
                 }
 
@@ -64,7 +65,7 @@ public class Blog_add extends AppCompatActivity {
         });
     }
     public void onBackPressed() {
-        Intent intent = new Intent(Blog_add.this, MainActivity.class);
+        Intent intent = new Intent(Blog_add.this, AccountFragment.class);
         startActivity(intent);
         finish();
     }

@@ -89,12 +89,14 @@ public class Tour_FillInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     String edName = edNameCustomer.getText().toString();
-                    String edphone = edNameCustomer.getText().toString();
-                    String edemail = edNameCustomer.getText().toString();
+                    String edphone = edPhoneCustom.getText().toString();
+                    String edemail = edEmailCustom.getText().toString();
 
                     boolean emailchk= checkEmail(edemail);
+
                     if( edName.isEmpty() || emailchk == false || edphone.length()!=10){
                         Toast.makeText(view.getContext(),"Điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), emailchk + "sgsd", Toast.LENGTH_LONG).show();
                     }
                     else{
                         Intent intent = new Intent(Tour_FillInfo.this, Tour_PaySuccess.class);
