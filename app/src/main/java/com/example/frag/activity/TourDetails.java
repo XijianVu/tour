@@ -23,8 +23,11 @@ import android.widget.Toast;
 
 import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.HomeFragment;
 import com.example.frag.model.Blog;
 import com.example.frag.model.Tour;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +50,7 @@ public class TourDetails extends AppCompatActivity {
     private ImageView viewPagerdetails;
     private TextView tvTourName;
     private TextView placeTour;
-    private TextView timeTour;
+    private TextView tvTimeTour;
     private TextView placeStart;
     private TextView tourtrend, tvPrice;
     private TextView sdt;
@@ -84,22 +87,34 @@ public class TourDetails extends AppCompatActivity {
         placeStart.setText(startPlace);
         tvPrice.setText(pricePeople);
         tourtrend.setText(about);
+        tvTimeTour.setText(timeTour);
 
         btnTimTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TourDetails.this, Tour_FindTour.class);
                 intent.putExtra("name", name);
-
+                intent.putExtra("image", image);
                 intent.putExtra("timeTour", timeTour);
                 intent.putExtra("image", image);
 
                 intent.putExtra("pricePeople", pricePeople);
                 intent.putExtra("priceChild", priceChild);
+                intent.putExtra("sdt",sdt);
+
+                intent.putExtra("placeStart",startPlace);
+                intent.putExtra("placeTour",place);
+
 
                 startActivity(intent);
             }
         });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail().toString().trim();
+        if ( email.equals("admin@gmail.com") ){
+            btn_edit_tour.setVisibility(View.VISIBLE);
+            btn_remove_tour.setVisibility(View.VISIBLE);
+        }
 
         btn_remove_tour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,13 +239,18 @@ public class TourDetails extends AppCompatActivity {
 
 
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(TourDetails.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void initViews() {
         viewPagerdetails = findViewById(R.id.viewPagerdetails);
         tvTourName = findViewById(R.id.tvTourName);
         tvPrice = findViewById(R.id.tvPrice);
         tourtrend = findViewById(R.id.tourtrend);
-        timeTour = findViewById(R.id.timeTour);
+        tvTimeTour = findViewById(R.id.timeTour);
         placeTour = findViewById(R.id.placeTour);
         placeStart = findViewById(R.id.placeStart);
         btnTimTour = findViewById(R.id.btnTimTour);

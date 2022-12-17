@@ -41,7 +41,7 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
         holder.placeStart.setText(model.getPlaceStart());
         holder.placeTour.setText(model.getPlaceTour());
         holder.priceChild.setText(model.getPriceChild());
-        holder.pricePeople.setText(model.getPricePeople());
+        holder.pricePeople.setText(model.getPricePeople() +"VND");
         holder.timeTour.setText(model.getTimeTour());
         holder.sdt.setText(model.getSdt());
 
