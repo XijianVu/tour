@@ -71,7 +71,7 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage("Are you sure you want to exit?")
+                builder.setMessage("Bạn có chắc muốn xoá ?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -145,24 +145,29 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                         String purl =blog_edit_purl.getText().toString();
                         String titulo = blog_edit_titulo.getText().toString();
 
-                        Blog blog = new Blog(descripcion,purl,titulo);
-                        ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
+                        if(titulo.isEmpty() || titulo.equals(" ")) {
+                            Toast.makeText(view.getContext(),"ID không được bỏ trống",Toast.LENGTH_LONG).show();
+                        } else {
+                            Blog blog = new Blog(descripcion, purl, titulo);
+                            ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
 
-                        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
-                        Query applesQuery = ref1.child("blog").orderByChild("titulo").equalTo(model.getTitulo());
-                        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                                    appleSnapshot.getRef().removeValue();
-                                    Toast.makeText(view.getContext(),"Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
+                            DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
+                            Query applesQuery = ref1.child("blog").orderByChild("titulo").equalTo(model.getTitulo());
+                            applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                                        appleSnapshot.getRef().removeValue();
+                                        Toast.makeText(view.getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
                                 }
-                            }
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                            }
-                        });
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                }
+                            });
+                        }
                     }
                 });
                 dialog.show();

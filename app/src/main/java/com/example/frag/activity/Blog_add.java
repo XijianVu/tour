@@ -40,13 +40,20 @@ public class Blog_add extends AppCompatActivity {
         btnPushBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String descripcion = edit_descripcion.getText().toString();
                 String purl =edit_purl.getText().toString();
                 String titulo = edit_titulo.getText().toString();
 
-                Blog blog = new Blog(descripcion,purl,titulo);
-                ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
-                Toast.makeText(view.getContext(),"Thêm blog thành công", Toast.LENGTH_SHORT).show();
+
+                if(titulo.isEmpty() || titulo.equals(" ")){
+                    Toast.makeText(view.getContext(), "ID không được bỏ trống", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Blog blog = new Blog(descripcion, purl, titulo);
+                    ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
+                    Toast.makeText(view.getContext(), "Thêm blog thành công", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

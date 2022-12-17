@@ -62,10 +62,14 @@ public class Tour_add extends AppCompatActivity {
                 String timeTour = edit_timeTour.getText().toString();
                 String sdt  = edit_sdt.getText().toString();
 
-
-                Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
-                ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
-                Toast.makeText(view.getContext(),"Thêm tour thành công", Toast.LENGTH_SHORT).show();
+                if(name.isEmpty() || name.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Tên tour không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
+                    ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+                    Toast.makeText(view.getContext(), "Thêm tour thành công", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

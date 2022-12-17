@@ -190,24 +190,30 @@ public class TourDetails extends AppCompatActivity {
                         String timeTour = tour_edit_timeTour.getText().toString();
                         String sdt = tour_edit_sdt.getText().toString();
 
-                        Tour tour = new Tour(about,name,placeStart,placeTour,priceChild,pricePeople,resourceId,timeTour,sdt);
-                        ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+                        if(name.isEmpty() || name.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Tên tour không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }else {
 
-                        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
-                        Query applesQuery = ref1.child("tour").orderByChild("name").equalTo(bundle.getString("name"));
-                        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                                    appleSnapshot.getRef().removeValue();
-                                    Toast.makeText(view.getContext(),"Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
+                            Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
+                            ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+
+                            DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
+                            Query applesQuery = ref1.child("tour").orderByChild("name").equalTo(bundle.getString("name"));
+                            applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                                        appleSnapshot.getRef().removeValue();
+                                        Toast.makeText(view.getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
                                 }
-                            }
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                            }
-                        });
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                }
+                            });
+                        }
 
                     }
                 });

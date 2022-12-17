@@ -105,7 +105,7 @@ public class AccountFragment extends Fragment {
                 {
                     Intent intent = new Intent(getActivity(), Blog_add.class);
                     startActivity(intent);
-                    Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
                 }
             });
             tour_add.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +113,7 @@ public class AccountFragment extends Fragment {
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), Tour_add.class);
                     startActivity(intent);
-                    Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
                 }
             });
         } else {
