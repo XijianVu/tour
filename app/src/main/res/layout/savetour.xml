@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="165dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/base_cardview"
     app:cardElevation="10dp"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingEnd="10dp"
         android:orientation="vertical">
@@ -68,97 +69,90 @@
                     android:textSize="10dp" />
 
             </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/ivSave"
-                    android:layout_width="20dp"
-                    android:layout_height="25dp"
 
-                    >
-
-                </ImageView>
-
-            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
+        <View
             android:layout_height="1dp"
             android:layout_width="fill_parent"
             android:layout_marginLeft="15dp"
             android:background="#D0CFD3"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="match_parent"
-            android:paddingLeft="15dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
             <TextView
                 android:id="@+id/tvPrice"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColor="#C82929"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
                 android:text="1.500.000/ person"/>
+            <ImageButton
+                android:id="@+id/arrow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_expand_more_24"/>
 
-            <TextView
-                android:id="@+id/phoneCustom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="phoneCustom"/>
-            <TextView
-                android:id="@+id/emailCustom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="emailCustom"/>
-            <TextView
-                android:id="@+id/people_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="people_amount"/>
-            <TextView
-                android:id="@+id/child_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="child_amount"/>
-            <TextView
-                android:id="@+id/pricePeople"
-                android:layout_width="match_parent"
-                android:visibility="invisible"
-                android:layout_height="wrap_content"
-                android:text="pricePeople"/>
-            <TextView
-                android:id="@+id/priceChild"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="priceChild"/>
-
-            <TextView
-                android:id="@+id/placeStart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="placeStart"/>
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="time"/>
-            <TextView
-                android:id="@+id/nameCustom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:text="time"/>
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/llExpandArea"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:paddingVertical="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SĐT: "/>
+                <TextView
+                    android:id="@+id/phoneCustom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:paddingVertical="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email: "/>
+                <TextView
+                    android:id="@+id/emailCustom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingVertical="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nơi khởi hành: "/>
+                <TextView
+                    android:id="@+id/placeStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </LinearLayout>
 
 
 
