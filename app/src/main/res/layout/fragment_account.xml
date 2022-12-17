@@ -25,21 +25,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="176dp"
                     android:background="#8AC1EC"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/avatar"
                         android:layout_width="96dp"
                         android:layout_height="96dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/user128"
+                        android:paddingLeft="20dp"
                         app:civ_border_color="#FF000000"
                         app:civ_border_width="2dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="176dp"
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical|center"
                         android:orientation="vertical">
 

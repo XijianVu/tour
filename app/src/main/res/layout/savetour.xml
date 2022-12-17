@@ -53,20 +53,20 @@
                 <TextView
                     android:id="@+id/tvtimeTour"
                     android:layout_width="match_parent"
-                    android:layout_height="16dp"
+                    android:layout_height="wrap_content"
                     android:lineSpacingExtra="3dp"
                     android:text="Time Tour"
                     android:textColor="#4A4747"
-                    android:textSize="10dp" />
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/placeTour"
                     android:layout_width="match_parent"
-                    android:layout_height="16dp"
+                    android:layout_height="wrap_content"
                     android:lineSpacingExtra="3dp"
                     android:textColor="#4A4747"
                     android:text="Place Tour"
-                    android:textSize="10dp" />
+                    android:textSize="15dp" />
 
             </LinearLayout>
 

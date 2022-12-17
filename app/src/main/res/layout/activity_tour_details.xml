@@ -61,7 +61,7 @@
                             android:layout_marginTop="5dp"
                             android:textSize="16sp"
                             android:textColor="@color/black"
-                            android:text="Điểm đến: "/>
+                            android:text="Điểm đến : "/>
                         <TextView
                             android:id="@+id/placeTour"
                             android:layout_width="wrap_content"

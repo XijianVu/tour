@@ -57,7 +57,9 @@
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:ems="10"
-                    android:hint="about"/>
+                    android:textStyle="italic"
+                    android:textColorHint="#3B185F"
+                    android:hint="Giới thiệu"/>
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -72,7 +74,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="name" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Tên tour" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -85,7 +89,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="placeStart" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Nơi khởi hành" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -98,7 +104,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="placeTour" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Điểm đến của tour" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -111,7 +119,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="priceChild" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Giá trẻ em" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -124,7 +134,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="pricePeople" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Giá người lớn" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -137,7 +149,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="resourceId" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Link ảnh tham khảo" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -150,7 +164,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="timeTour" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Thời gian đi tour" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -164,7 +180,9 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="sdt" />
+                android:textStyle="italic"
+                android:textColorHint="#3B185F"
+                android:hint="Điện thoại liên hệ" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
