@@ -55,7 +55,7 @@ public class BlogDetail extends AppCompatActivity {
         tvDescripcionDetail = findViewById(R.id.tvDescripcionDetail);
     }
     public void onBackPressed() {
-        Intent intent = new Intent(BlogDetail.this, BlogFragment.class);
+        Intent intent = new Intent(BlogDetail.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

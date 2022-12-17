@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.AccountFragment;
 import com.example.frag.fragment.HomeFragment;
 import com.example.frag.model.Blog;
 import com.example.frag.model.Tour;
@@ -132,7 +133,8 @@ public class TourDetails extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
                                             appleSnapshot.getRef().removeValue();
-
+                                            Intent intent = new Intent(TourDetails.this, MainActivity.class);
+                                            startActivity(intent);
                                             Toast.makeText(view.getContext(),"Xoá thành công", Toast.LENGTH_SHORT).show();
 
                                         }
@@ -196,7 +198,7 @@ public class TourDetails extends AppCompatActivity {
                     public void onClick(View view) {
 
                         String about = tour_edit_about.getText().toString();
-                        String name = tour_edit_name.getText().toString();
+                        String name1 = tour_edit_name.getText().toString();
                         String placeStart = tour_edit_placeStart.getText().toString();
                         String placeTour = tour_edit_placeTour.getText().toString();
                         String priceChild = tour_edit_priceChild.getText().toString();
@@ -205,11 +207,11 @@ public class TourDetails extends AppCompatActivity {
                         String timeTour = tour_edit_timeTour.getText().toString();
                         String sdt = tour_edit_sdt.getText().toString();
 
-                        if(name.isEmpty() || name.equals(" ")) {
+                        if(name1.isEmpty() || name1.equals(" ")) {
                             Toast.makeText(view.getContext(), "Tên tour không được bỏ trống", Toast.LENGTH_LONG).show();
                         }else {
 
-                            Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
+                            Tour tour = new Tour(about, name1, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
                             ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
 
                             DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
@@ -219,8 +221,14 @@ public class TourDetails extends AppCompatActivity {
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
                                         appleSnapshot.getRef().removeValue();
-                                        Toast.makeText(view.getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(TourDetails.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+
+                                        //Update lại tour
+                                        tvTourName.setText(name1);
+
                                         dialog.dismiss();
+
+
                                     }
                                 }
 

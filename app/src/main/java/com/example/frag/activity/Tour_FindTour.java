@@ -144,18 +144,24 @@ public class Tour_FindTour extends AppCompatActivity {
         btnFillInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
-                intent.putExtra("name", name);
-                intent.putExtra("image", image);
-                intent.putExtra("pricePeople", pricePeople);
-                intent.putExtra("priceChild", priceChild);
-                intent.putExtra("_counter_people", _counter_people);
-                intent.putExtra("_counter_child", _counter_child);
-                intent.putExtra("timeTour", formattedDate);
+                if (_counter_people==0){
+                    Toast.makeText(view.getContext(),"Vui lòng chọn ít nhất 1 vé người lớn",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("image", image);
+                    intent.putExtra("pricePeople", pricePeople);
+                    intent.putExtra("priceChild", priceChild);
+                    intent.putExtra("_counter_people", _counter_people);
+                    intent.putExtra("_counter_child", _counter_child);
+                    intent.putExtra("timeTour", formattedDate);
 
-                intent.putExtra("placeStart",placeStart);
-                intent.putExtra("placeTour",placeTour);
-                startActivity(intent);
+                    intent.putExtra("placeStart",placeStart);
+                    intent.putExtra("placeTour",placeTour);
+                    startActivity(intent);
+                }
+
             }
         });
     }

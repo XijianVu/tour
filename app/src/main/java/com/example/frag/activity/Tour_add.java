@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.AccountFragment;
 import com.example.frag.model.Tour;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -73,6 +74,7 @@ public class Tour_add extends AppCompatActivity {
                     Intent intent = new Intent(Tour_add.this, MainActivity.class);
                     startActivity(intent);
                     Toast.makeText(view.getContext(), "Thêm tour thành công", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

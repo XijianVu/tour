@@ -57,7 +57,7 @@ public class Blog_add extends AppCompatActivity {
                     Blog blog = new Blog(descripcion, purl, titulo);
                     ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
                     Toast.makeText(view.getContext(), "Thêm blog thành công", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Blog_add.this, AccountFragment.class);
+                    Intent intent = new Intent(Blog_add.this, MainActivity.class);
                     startActivity(intent);
                 }
 
@@ -65,7 +65,7 @@ public class Blog_add extends AppCompatActivity {
         });
     }
     public void onBackPressed() {
-        Intent intent = new Intent(Blog_add.this, AccountFragment.class);
+        Intent intent = new Intent(Blog_add.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
