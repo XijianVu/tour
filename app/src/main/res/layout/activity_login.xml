@@ -134,10 +134,10 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No Account yet? create One"
+                android:text="No account yet? Create one"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:textSize="15sp"
+                android:textSize="20dp"
                 android:textAlignment="center"
                 />
 
