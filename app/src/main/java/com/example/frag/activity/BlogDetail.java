@@ -2,11 +2,14 @@ package com.example.frag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.BlogFragment;
 import com.example.frag.model.Blog;
 import com.squareup.picasso.Picasso;
 
@@ -50,5 +53,10 @@ public class BlogDetail extends AppCompatActivity {
         imgItemDetail = findViewById(R.id.imgItemDetail);
         tvTitleDetail = findViewById(R.id.tvTitleDetail);
         tvDescripcionDetail = findViewById(R.id.tvDescripcionDetail);
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(BlogDetail.this, BlogFragment.class);
+        startActivity(intent);
+        finish();
     }
 }

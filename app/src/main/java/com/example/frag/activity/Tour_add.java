@@ -3,12 +3,14 @@ package com.example.frag.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.frag.MainActivity;
 import com.example.frag.R;
 import com.example.frag.model.Tour;
 import com.google.firebase.database.DatabaseReference;
@@ -68,10 +70,17 @@ public class Tour_add extends AppCompatActivity {
                 else {
                     Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
                     ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
+                    Intent intent = new Intent(Tour_add.this, MainActivity.class);
+                    startActivity(intent);
                     Toast.makeText(view.getContext(), "Thêm tour thành công", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(Tour_add.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

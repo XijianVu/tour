@@ -3,13 +3,16 @@ package com.example.frag.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.frag.MainActivity;
 import com.example.frag.R;
+import com.example.frag.fragment.BlogFragment;
 import com.example.frag.model.Blog;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,15 +50,23 @@ public class Blog_add extends AppCompatActivity {
 
 
                 if(titulo.isEmpty() || titulo.equals(" ")){
-                    Toast.makeText(view.getContext(), "ID không được bỏ trống", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Blog blog = new Blog(descripcion, purl, titulo);
                     ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
                     Toast.makeText(view.getContext(), "Thêm blog thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Blog_add.this, MainActivity.class);
+                    startActivity(intent);
                 }
 
             }
         });
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(Blog_add.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

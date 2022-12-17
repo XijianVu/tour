@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,25 +20,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.frag.R;
 import com.example.frag.activity.BlogDetail;
-import com.example.frag.model.item;
 import com.example.frag.model.Blog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogViewHolder>{
 
@@ -66,6 +62,12 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                 context.startActivity(intent);
             }
         });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail().toString().trim();
+        if ( email.equals("admin@gmail.com") ){
+            holder.blog_remove.setVisibility(View.VISIBLE);
+            holder.blog_edit.setVisibility(View.VISIBLE);
+        }
 
         holder.blog_remove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,7 +185,7 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
     @NonNull
     @Override
     public BlogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.trend_item_list_view,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.blog_item_list_view,parent,false);
         return new BlogViewHolder(view);
     }
 
