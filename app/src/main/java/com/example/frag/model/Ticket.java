@@ -25,7 +25,7 @@ public class Ticket {
         this.priceTotal = priceTotal;
     }
 
-    public Ticket(String nameTour, String placeTour, String priceTotal, String timeTour, String phoneCustom, String emailCustom, String placeStart) {
+    public Ticket(String nameTour, String placeTour, String priceTotal, String timeTour, String phoneCustom, String emailCustom, String placeStart, String time, int people_amount, int child_amount) {
         this.nameTour = nameTour;
         this.placeTour = placeTour;
         this.priceTotal = priceTotal;
@@ -35,6 +35,9 @@ public class Ticket {
         this.emailCustom = emailCustom;
         this.placeStart = placeStart;
         this.nameCustom = nameCustom;
+        this.time = time;
+        this.people_amount = people_amount;
+        this.child_amount = child_amount;
     }
 
     /*public Ticket(String name, int people_amount, int child_amount, String nameTour, String timeTour, String placeTour, String placeStart, String pricePeople, String priceChild, String phoneCustom, String emailCustom, String time) {

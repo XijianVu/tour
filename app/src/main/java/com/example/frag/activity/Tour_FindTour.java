@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Tour_FindTour extends AppCompatActivity {
-    private TextView tvTitle, txtDate, txtDate2;
+    private TextView tvTitle, txtDate, txtDate2, txtSDT, tvPricePeople, tvPriceChild;
     private TextView tvTourName, people_amount, child_amount;
     private  ImageButton btnDate;
     private Button  btnFillInfo;
@@ -38,12 +38,21 @@ public class Tour_FindTour extends AppCompatActivity {
         initViews();
 
         Bundle bundle = getIntent().getExtras();
+        String image = bundle.getString("image");
         String name = bundle.getString("name");
         String pricePeople = bundle.getString("pricePeople");
         String priceChild = bundle.getString("priceChild");
+        String sdt = bundle.getString("sdt");
+
+        String placeTour = bundle.getString("placeTour");
+        String placeStart = bundle.getString("placeStart");
+
 
         tvTitle.setText(name);
         tvTourName.setText(name);
+        txtSDT.setText(sdt);
+        tvPricePeople.setText("(" + pricePeople + " VND )");
+        tvPriceChild.setText("(" +priceChild+ " VND )");
 
         people_amount = (TextView)findViewById(R.id.people_amount);
         _counter_people = Integer.valueOf(people_amount.getText().toString());
@@ -137,11 +146,15 @@ public class Tour_FindTour extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Tour_FindTour.this, Tour_FillInfo.class);
                 intent.putExtra("name", name);
+                intent.putExtra("image", image);
                 intent.putExtra("pricePeople", pricePeople);
                 intent.putExtra("priceChild", priceChild);
                 intent.putExtra("_counter_people", _counter_people);
                 intent.putExtra("_counter_child", _counter_child);
                 intent.putExtra("timeTour", formattedDate);
+
+                intent.putExtra("placeStart",placeStart);
+                intent.putExtra("placeTour",placeTour);
                 startActivity(intent);
             }
         });
@@ -152,6 +165,7 @@ public class Tour_FindTour extends AppCompatActivity {
         tvTourName = findViewById(R.id.tvTourName);
         txtDate = findViewById(R.id.txtDate);
         txtDate2 = findViewById(R.id.txtDate2);
+        txtSDT = findViewById(R.id.txtSDT);
 
         btnDate = findViewById(R.id.btnDate);
         btnFillInfo = findViewById(R.id.btnFillInfo);
@@ -161,5 +175,8 @@ public class Tour_FindTour extends AppCompatActivity {
 
         child_minus = findViewById(R.id.child_minus);
         child_add = findViewById(R.id.child_add);
+
+        tvPricePeople = findViewById(R.id.tvPricePeople);
+        tvPriceChild = findViewById(R.id.tvPriceChild);
     }
 }

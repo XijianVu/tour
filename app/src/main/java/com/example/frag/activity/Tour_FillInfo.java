@@ -10,6 +10,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,20 +21,25 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class Tour_FillInfo extends AppCompatActivity {
     private Button btnPay;
-    private TextView tvTitle;
+    private ImageView img;
+    private TextView tvTitle, tvTimeTour, tvPlaceStart;
     private TextView tvTourName, tvPeople_amount, tvChild_amount, tvPriceTotal;
 
     private EditText edNameCustomer, edPhoneCustom, edEmailCustom;
     private TextView tvAmountTicketChild, tvAmountTicketPeople, tvPricePeople, tvPriceChild;
+    private TextInputLayout floatingPhoneLabel ;
 
     private DatabaseReference ref;
+    private Boolean checkErro = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +55,14 @@ public class Tour_FillInfo extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         ref = database.getReference();
 
-
+        String image = bundle.getString("image");
         String name = bundle.getString("name");
         String pricePeople = bundle.getString("pricePeople");
         String priceChild = bundle.getString("priceChild");
         String timeTour = bundle.getString("timeTour");
+        String placeTour = bundle.getString("placeTour");
+        String placeStart = bundle.getString("placeStart");
+
         int people=Integer.parseInt(pricePeople);
         int child=Integer.parseInt(priceChild);
 
@@ -62,7 +71,10 @@ public class Tour_FillInfo extends AppCompatActivity {
         Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
         String priceTotal = String.valueOf(people_amount*people+child_amount*child);
 
+        Picasso.get().load(image).into(img);
         tvTourName.setText(name);
+        tvTimeTour.setText(timeTour);
+        tvPlaceStart.setText(placeStart);
         tvPriceTotal.setText(priceTotal);
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
@@ -76,28 +88,34 @@ public class Tour_FillInfo extends AppCompatActivity {
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tour_FillInfo.this, Tour_PaySuccess.class);
-                String nameCustom = edNameCustomer.getText().toString();
-                String phoneCustom =edPhoneCustom.getText().toString();
-                String emailCustom = edEmailCustom.getText().toString();
+                    String edName = edNameCustomer.getText().toString();
+                    String edphone = edNameCustomer.getText().toString();
+                    String edemail = edNameCustomer.getText().toString();
+
+                    boolean emailchk= checkEmail(edemail);
+                    if( edName.isEmpty() || emailchk == false || edphone.length()!=10){
+                        Toast.makeText(view.getContext(),"Điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Intent intent = new Intent(Tour_FillInfo.this, Tour_PaySuccess.class);
+                        //String nameCustom = edNameCustomer.getText().toString();
+                        String phoneCustom =edPhoneCustom.getText().toString();
+                        String emailCustom = edEmailCustom.getText().toString();
+
+                        Calendar c = Calendar.getInstance();
+                        SimpleDateFormat  format = new SimpleDateFormat("dd-MM-yyyyHH:mm:ss");
+                        String time = format.format(c.getTime());
+
+                        int a =email.indexOf("@");
+                        String email1 = email.substring(0, a);
+
+                        Ticket ticket = new Ticket(name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
+                        ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
+
+                        startActivity(intent);
+                    }
 
 
-                String placeTour = "placeTour";
-                String placeStart = "placeStart";
-
-
-
-                Calendar c = Calendar.getInstance();
-                SimpleDateFormat  format = new SimpleDateFormat("dd-MM-yyyyHH:mm:ss");
-                String time = format.format(c.getTime());
-
-                int a =email.indexOf("@");
-                String email1 = email.substring(0, a);
-
-                Ticket ticket = new Ticket(name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart);
-                ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
-
-                startActivity(intent);
             }
         });
         final TextInputLayout floatingUsernameLabel = (TextInputLayout) findViewById(R.id.name_text_input_layout);
@@ -106,10 +124,41 @@ public class Tour_FillInfo extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence text, int start, int count, int after) {
                 if (text.length() > 0 && text.length() <= 4) {
-                    floatingUsernameLabel.setError(getString(R.string.username_required));
+                    floatingUsernameLabel.setError("valid name");
                     floatingUsernameLabel.setErrorEnabled(true);
+
                 } else {
                     floatingUsernameLabel.setErrorEnabled(false);
+                    checkErro = false;
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        final TextInputLayout floatingEmailLabel = (TextInputLayout) findViewById(R.id.email_text_input_layout);
+        floatingEmailLabel.getEditText().addTextChangedListener(new TextWatcher() {
+            // ...
+            @Override
+            public void onTextChanged(CharSequence text, int start, int count, int after) {
+                String e = text.toString();
+                boolean c = checkEmail(e);
+                if (!c) {
+                    floatingEmailLabel.setError("valid email id is required");
+                    floatingEmailLabel.setErrorEnabled(true);
+
+                } else {
+                    floatingEmailLabel.setErrorEnabled(false);
+                    checkErro = false;
                 }
             }
             @Override
@@ -125,7 +174,18 @@ public class Tour_FillInfo extends AppCompatActivity {
         });
     }
 
+
+    public static boolean checkEmail(String email) {
+
+        Pattern EMAIL_ADDRESS_PATTERN = Pattern
+                .compile("[a-zA-Z0-9+._%-+]{1,256}" + "@"
+                        + "[a-zA-Z0-9][a-zA-Z0-9-]{0,64}" + "(" + "."
+                        + "[a-zA-Z0-9][a-zA-Z0-9-]{0,25}" + ")+");
+        return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
+    }
+
     private void initViews() {
+        img = findViewById(R.id.img);
         tvTitle = findViewById(R.id.tvTitle);
         tvTourName = findViewById(R.id.tvTourName);
 
@@ -143,8 +203,8 @@ public class Tour_FillInfo extends AppCompatActivity {
         tvPricePeople = findViewById(R.id.tvPricePeople);
         tvPriceChild = findViewById(R.id.tvPriceChild);
 
-
-
+        tvTimeTour = findViewById(R.id.tvTimeTour);
+        tvPlaceStart = findViewById(R.id.tvPlaceStart);
 
     }
 }

@@ -7,7 +7,7 @@
     app:cardCornerRadius="15sp">
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="270dp"
+        android:layout_height="275dp"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -19,16 +19,21 @@
             android:src="@drawable/a1" />
         <TextView android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
+            android:textSize="14dp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:text="Name"/>
         <TextView android:id="@+id/pricePeople"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="14dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
+            android:gravity="right"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:text="pricePeople"/>
         <TextView
@@ -39,6 +44,7 @@
             android:paddingVertical="5dp"
             android:visibility="invisible"
             android:textColor="@color/black"
+
             android:text="priceChild"/>
         <TextView android:id="@+id/timeTour"
             android:layout_width="match_parent"
