@@ -121,6 +121,7 @@
                 android:ems="10"
                 android:textStyle="italic"
                 android:textColorHint="#3B185F"
+                android:inputType="number"
                 android:hint="Giá trẻ em" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -136,6 +137,7 @@
                 android:ems="10"
                 android:textStyle="italic"
                 android:textColorHint="#3B185F"
+                android:inputType="number"
                 android:hint="Giá người lớn" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
