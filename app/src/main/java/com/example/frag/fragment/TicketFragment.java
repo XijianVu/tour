@@ -18,7 +18,7 @@ import com.example.frag.adapter.MyTourAdapter;
 import com.example.frag.R;
 import com.example.frag.model.Ticket;
 import com.example.frag.model.Tour;
-import com.example.frag.model.item;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;

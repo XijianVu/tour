@@ -108,13 +108,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment.ExploreDetails"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activity.TourDetails"
             android:exported="false">
             <meta-data

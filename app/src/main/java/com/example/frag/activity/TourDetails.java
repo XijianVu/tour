@@ -37,6 +37,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
@@ -81,12 +82,17 @@ public class TourDetails extends AppCompatActivity {
 
 
         Picasso.get().load(image).into(viewPagerdetails);
+
+        int price = Integer.parseInt(pricePeople);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
         //viewPagerdetails.setImageResource(image);
         tvTourName.setText(name);
 
         placeTour.setText(place);
         placeStart.setText(startPlace);
-        tvPrice.setText(pricePeople);
+        tvPrice.setText(decimalFormat.format(price) + " VND");
         tourtrend.setText(about);
         tvTimeTour.setText(timeTour);
 
@@ -190,6 +196,16 @@ public class TourDetails extends AppCompatActivity {
                 EditText tour_edit_timeTour = dialog.findViewById(R.id.tour_edit_timeTour);
                 EditText tour_edit_sdt = dialog.findViewById(R.id.tour_edit_sdt);
 
+                tour_edit_about.setText(about);
+                tour_edit_name.setText(name);
+                tour_edit_placeStart.setText(startPlace);
+                tour_edit_placeTour.setText(place);
+                tour_edit_priceChild.setText(priceChild);
+                tour_edit_pricePeople.setText(pricePeople);
+                tour_edit_resourceId.setText(image);
+                tour_edit_timeTour.setText(timeTour);
+                tour_edit_sdt.setText(sdt);
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 ref = database.getReference();
 
@@ -197,43 +213,51 @@ public class TourDetails extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        String about = tour_edit_about.getText().toString();
-                        String name = tour_edit_name.getText().toString();
-                        String placeStart = tour_edit_placeStart.getText().toString();
-                        String placeTour = tour_edit_placeTour.getText().toString();
-                        String priceChild = tour_edit_priceChild.getText().toString();
-                        String pricePeople = tour_edit_pricePeople.getText().toString();
-                        String resourceId = tour_edit_resourceId.getText().toString();
-                        String timeTour = tour_edit_timeTour.getText().toString();
-                        String sdt = tour_edit_sdt.getText().toString();
+                        String ed_about = tour_edit_about.getText().toString();
+                        String ed_name = tour_edit_name.getText().toString();
+                        String ed_placeStart = tour_edit_placeStart.getText().toString();
+                        String ed_placeTour = tour_edit_placeTour.getText().toString();
+                        String ed_priceChild = tour_edit_priceChild.getText().toString();
+                        String ed_pricePeople = tour_edit_pricePeople.getText().toString();
+                        String ed_resourceId = tour_edit_resourceId.getText().toString();
+                        String ed_timeTour = tour_edit_timeTour.getText().toString();
+                        String ed_sdt = tour_edit_sdt.getText().toString();
 
-                        if(about.isEmpty() || about.equals(" ")) {
+                        if(ed_about.isEmpty() || ed_about.equals(" ")) {
                             Toast.makeText(view.getContext(), "Giới thiệu tour không được bỏ trống", Toast.LENGTH_LONG).show();
-                        }else if (name.isEmpty() || name.equals(" ")) {
+                        }else if (ed_name.isEmpty() || ed_name.equals(" ")) {
                             Toast.makeText(view.getContext(), "Tên không được bỏ trống", Toast.LENGTH_LONG).show();
-                        }else if (placeStart.isEmpty() || placeStart.equals(" ")) {
+                        }else if (ed_placeStart.isEmpty() || ed_placeStart.equals(" ")) {
                             Toast.makeText(view.getContext(), "Nơi khởi hành không được bỏ trống", Toast.LENGTH_LONG).show();
-                        }else if (placeTour.isEmpty() || placeTour.equals(" ")) {
+                        }else if (ed_placeTour.isEmpty() || ed_placeTour.equals(" ")) {
                             Toast.makeText(view.getContext(), "Điểm dến không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
+<<<<<<< HEAD
                         else if (priceChild.isEmpty() || priceChild.equals(" ") || !priceChild.matches("-?\\d+(\\.\\d+)?")) {
                             Toast.makeText(view.getContext(), "Giá trẻ em bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
                         }
                         else if (pricePeople.isEmpty() || pricePeople.equals(" ") || !pricePeople.matches("-?\\d+(\\.\\d+)?")) {
                             Toast.makeText(view.getContext(), "Giá người lớn bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
+=======
+                        else if (ed_priceChild.isEmpty() || ed_priceChild.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Giá trẻ em không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
-                        else if (resourceId.isEmpty() || resourceId.equals(" ")) {
+                        else if (ed_pricePeople.isEmpty() || ed_pricePeople.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Giá người lớn không được bỏ trống", Toast.LENGTH_LONG).show();
+>>>>>>> c496b571426acf05bb661cbac9e6abcd08e1e6ff
+                        }
+                        else if (ed_resourceId.isEmpty() || ed_resourceId.equals(" ")) {
                             Toast.makeText(view.getContext(), "Link ảnh không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
-                        else if (timeTour.isEmpty() || timeTour.equals(" ")) {
+                        else if (ed_timeTour.isEmpty() || ed_timeTour.equals(" ")) {
                             Toast.makeText(view.getContext(), "Thời gian đi không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
-                        else if (sdt.isEmpty() || sdt.equals(" ")) {
+                        else if (ed_sdt.isEmpty() || ed_sdt.equals(" ")) {
                             Toast.makeText(view.getContext(), "Liên hệ không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
                         else {
 
-                            Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
+                            Tour tour = new Tour(ed_about, ed_name, ed_placeStart, ed_placeTour, ed_priceChild, ed_pricePeople, ed_resourceId, ed_timeTour, ed_sdt);
                             ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
 
                             DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
@@ -246,8 +270,22 @@ public class TourDetails extends AppCompatActivity {
                                         Toast.makeText(TourDetails.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
 
                                         //Update lại tour
-                                        tvTourName.setText(name);
+                                        tvTourName.setText(ed_name);
+                                        placeTour.setText(ed_placeTour);
+                                        placeStart.setText(ed_placeStart);
+                                        tvPrice.setText(ed_pricePeople);
+                                        tourtrend.setText(ed_about);
+                                        tvTimeTour.setText(ed_timeTour);
 
+                                        String about = ed_about;
+                                        String name = ed_name;
+                                        String  startPlace = ed_placeStart;
+                                        String  place= ed_placeTour;
+                                        String priceChild = ed_priceChild;
+                                        String pricePeople = ed_pricePeople;
+                                        String image = ed_resourceId;
+                                        String timeTour = ed_timeTour;
+                                        String sdt = ed_sdt;
                                         dialog.dismiss();
 
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.frag.MainActivity;
 import com.example.frag.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -47,12 +48,17 @@ public class Tour_FindTour extends AppCompatActivity {
         String placeTour = bundle.getString("placeTour");
         String placeStart = bundle.getString("placeStart");
 
+        int priceP = Integer.parseInt(pricePeople);
+        int priceC = Integer.parseInt(priceChild);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
 
         tvTitle.setText(name);
         tvTourName.setText(name);
         txtSDT.setText(sdt);
-        tvPricePeople.setText("(" + pricePeople + " VND )");
-        tvPriceChild.setText("(" +priceChild+ " VND )");
+        tvPricePeople.setText("(" + decimalFormat.format(priceP) + " VND )");
+        tvPriceChild.setText("(" +decimalFormat.format(priceC)+ " VND )");
 
         people_amount = (TextView)findViewById(R.id.people_amount);
         _counter_people = Integer.valueOf(people_amount.getText().toString());

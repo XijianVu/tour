@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,19 +72,27 @@ public class Tour_FillInfo extends AppCompatActivity {
         Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
         String priceTotal = String.valueOf(people_amount*people+child_amount*child);
 
+        int price = Integer.parseInt(priceTotal);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+
+
+
         Picasso.get().load(image).into(img);
         tvTourName.setText(name);
         tvTimeTour.setText(timeTour);
         tvPlaceStart.setText(placeStart);
-        tvPriceTotal.setText(priceTotal);
+        tvPriceTotal.setText(decimalFormat.format(price) + "VND");
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
 
         tvAmountTicketPeople.setText("("+String.valueOf(people_amount)+"x)");
         tvAmountTicketChild.setText("("+String.valueOf(child_amount)+"x)");
 
-        tvPricePeople.setText(String.valueOf(people_amount*people));
-        tvPriceChild.setText(String.valueOf(child_amount*child));
+        tvPricePeople.setText(decimalFormat.format(Integer.parseInt(String.valueOf(people_amount*people))));
+        tvPriceChild.setText(decimalFormat.format(Integer.parseInt(String.valueOf(child_amount*child))));
+
 
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +102,9 @@ public class Tour_FillInfo extends AppCompatActivity {
                     String edemail = edEmailCustom.getText().toString();
 
                     boolean emailchk= checkEmail(edemail);
+                    boolean phonechk = checkPhone(edphone);
 
-                    if( edName.isEmpty() || emailchk == false || edphone.length()!=10){
+                    if( edName.isEmpty() || emailchk == false || phonechk == false){
                         Toast.makeText(view.getContext(),"Điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
                         Toast.makeText(view.getContext(), emailchk + "sgsd", Toast.LENGTH_LONG).show();
                     }
@@ -111,7 +121,7 @@ public class Tour_FillInfo extends AppCompatActivity {
                         int a =email.indexOf("@");
                         String email1 = email.substring(0, a);
 
-                        Ticket ticket = new Ticket(name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
+                        Ticket ticket = new Ticket(image,name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
                         ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
                         startActivity(intent);
@@ -175,7 +185,12 @@ public class Tour_FillInfo extends AppCompatActivity {
             }
         });
     }
+    public static boolean checkPhone(String phone) {
 
+        Pattern PHONE_PATTERN = Pattern
+                .compile("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$");
+        return PHONE_PATTERN.matcher(phone).matches();
+    }
 
     public static boolean checkEmail(String email) {
 

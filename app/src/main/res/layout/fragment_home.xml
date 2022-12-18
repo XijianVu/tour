@@ -7,7 +7,7 @@
     tools:context=".fragment.HomeFragment"
     android:padding="2dp"
     android:orientation="vertical"
-    android:background="#ADA2FF">
+    android:background="#EDECEC">
 
 <!-- TODO: Update blank fragment layout -->
     <ScrollView

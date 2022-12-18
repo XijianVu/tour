@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFE5F1"
+    android:background="#EDECEC"
     tools:context=".fragment.TicketFragment">
 
     <!-- TODO: Update blank fragment layout -->

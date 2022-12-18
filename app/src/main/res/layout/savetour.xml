@@ -41,10 +41,10 @@
                 android:layout_height="104dp"
                 android:orientation="vertical">
 
-                <TextView
+                <TextView   
                     android:id="@+id/tvTourName"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="63dp"
                     android:text="Name Tour"
                     android:textColor="@color/black"
                     android:textSize="15dp"
@@ -94,6 +94,9 @@
                 android:id="@+id/arrow_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:civ_border_color="#532222"
+                app:civ_border_width="2dp"
                 android:src="@drawable/ic_baseline_expand_more_24"/>
 
         </LinearLayout>

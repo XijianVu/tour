@@ -20,6 +20,8 @@ import com.example.frag.model.Tour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.text.DecimalFormat;
+
 public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapter.TourViewHolder> {
 
     public BestSaleAdapter(@NonNull FirebaseRecyclerOptions<Tour> options) {
@@ -36,12 +38,17 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
 
     @Override
     protected void onBindViewHolder(@NonNull BestSaleAdapter.TourViewHolder holder, int position, @NonNull Tour model) {
+        int price = Integer.parseInt(model.getPricePeople());
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+
         holder.about.setText(model.getAbout());
         holder.name.setText(model.getName());
         holder.placeStart.setText(model.getPlaceStart());
         holder.placeTour.setText(model.getPlaceTour());
         holder.priceChild.setText(model.getPriceChild());
-        holder.pricePeople.setText(model.getPricePeople() +"VND");
+        holder.pricePeople.setText(decimalFormat.format(price) + " VND");
         holder.timeTour.setText(model.getTimeTour());
         holder.sdt.setText(model.getSdt());
 

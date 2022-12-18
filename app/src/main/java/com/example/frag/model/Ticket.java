@@ -3,7 +3,7 @@ package com.example.frag.model;
 import java.util.Date;
 
 public class Ticket {
-    private String nameCustom, phoneCustom, emailCustom;
+    private String nameCustom, phoneCustom, emailCustom,image;
     private int people_amount, child_amount;
     String nameTour;
     String timeTour;
@@ -25,7 +25,8 @@ public class Ticket {
         this.priceTotal = priceTotal;
     }
 
-    public Ticket(String nameTour, String placeTour, String priceTotal, String timeTour, String phoneCustom, String emailCustom, String placeStart, String time, int people_amount, int child_amount) {
+    public Ticket(String image,String nameTour, String placeTour, String priceTotal, String timeTour, String phoneCustom, String emailCustom, String placeStart, String time, int people_amount, int child_amount) {
+        this.image = image;
         this.nameTour = nameTour;
         this.placeTour = placeTour;
         this.priceTotal = priceTotal;
@@ -55,6 +56,14 @@ public class Ticket {
         this.time = time;
 
     }*/
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getNameCustom() {
         return nameCustom;

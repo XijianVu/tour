@@ -4,8 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     tools:context=".fragment.AccountFragment"
     android:background="#FFF8E1">
+=======
+    android:background="#EDECEC"
+    tools:context=".fragment.AccountFragment">
+>>>>>>> c496b571426acf05bb661cbac9e6abcd08e1e6ff
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -34,7 +39,8 @@
                         android:layout_height="96dp"
                         android:src="@drawable/user128"
                         android:paddingLeft="20dp"
-                        app:civ_border_color="#FF000000"
+
+                        app:civ_border_color="#A38F8F"
                         app:civ_border_width="2dp" />
 
                     <LinearLayout
