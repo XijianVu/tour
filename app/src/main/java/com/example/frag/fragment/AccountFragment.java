@@ -1,6 +1,9 @@
 package com.example.frag.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +11,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +33,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class AccountFragment extends Fragment {
     TextView tvName;
     Button btnLogin,blog_add,btnLogout;
+    LinearLayout acti_support, acti_infor;
 
 
     public AccountFragment() {
@@ -75,6 +82,57 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });*/
+        LinearLayout acti_support = view.findViewById(R.id.acti_support);
+        acti_support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(view.getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.activity_support);
+
+                Window window = dialog.getWindow();
+                if(window==null){
+                    return;
+                }
+                window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                ImageButton btn_back = dialog.findViewById(R.id.btn_back);
+                btn_back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        LinearLayout acti_infor = view.findViewById(R.id.acti_infor);
+        acti_infor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(view.getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.activity_infor);
+
+                Window window = dialog.getWindow();
+                if(window==null){
+                    return;
+                }
+                window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                ImageButton btn_back = dialog.findViewById(R.id.btn_back);
+                btn_back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user.getEmail().toString().trim();
         tvName.setText(email);
@@ -121,24 +179,7 @@ public class AccountFragment extends Fragment {
         });
 
 
-
-
         return view;
     }
-    private void getProfile() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user == null) {
-            return;
-        }
-        String email = user.getEmail().toString().trim();
-        //Uri photoUrl = user.getPhotoUrl();
 
-        tvName.setText(email);
-
-       /*btnLogin.setVisibility(View.VISIBLE);
-        blog_add.setVisibility(View.VISIBLE);
-        btnLogout.setVisibility(View.VISIBLE);*/
-
-        //imageView.setVisibility(View.VISIBLE);
-    }
 }

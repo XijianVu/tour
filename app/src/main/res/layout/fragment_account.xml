@@ -4,13 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-<<<<<<< HEAD
+
     tools:context=".fragment.AccountFragment"
     android:background="#FFF8E1">
-=======
-    android:background="#EDECEC"
-    tools:context=".fragment.AccountFragment">
->>>>>>> c496b571426acf05bb661cbac9e6abcd08e1e6ff
+
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -146,66 +143,7 @@
 <!--                    </LinearLayout>-->
 
 <!--                </LinearLayout>-->
-                <LinearLayout
-                    android:id="@+id/acti_infor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
-                    android:elevation="3dp"
-                    android:padding="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_background"
-                    >
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:orientation="horizontal"
-                        >
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/icinfor" />
-
-                        <LinearLayout
-                            android:layout_width="250dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="10dp">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Thông tin về chúng tôi"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Xem thông tin về nhà phát hành"/>
-
-                        </LinearLayout>
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@color/white"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/acti_support"
                     android:layout_width="match_parent"
@@ -252,6 +190,66 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Bao gồm các điều khoản sử dụng"/>
+
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@color/white"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/acti_infor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:elevation="3dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="43dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icinfor" />
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="10dp">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Thông tin về chúng tôi"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Xem thông tin về nhà phát hành"/>
 
                         </LinearLayout>
 

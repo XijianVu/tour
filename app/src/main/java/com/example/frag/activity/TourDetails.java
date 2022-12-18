@@ -232,19 +232,11 @@ public class TourDetails extends AppCompatActivity {
                         }else if (ed_placeTour.isEmpty() || ed_placeTour.equals(" ")) {
                             Toast.makeText(view.getContext(), "Điểm dến không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
-<<<<<<< HEAD
-                        else if (priceChild.isEmpty() || priceChild.equals(" ") || !priceChild.matches("-?\\d+(\\.\\d+)?")) {
-                            Toast.makeText(view.getContext(), "Giá trẻ em bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
-                        }
-                        else if (pricePeople.isEmpty() || pricePeople.equals(" ") || !pricePeople.matches("-?\\d+(\\.\\d+)?")) {
-                            Toast.makeText(view.getContext(), "Giá người lớn bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
-=======
                         else if (ed_priceChild.isEmpty() || ed_priceChild.equals(" ")) {
                             Toast.makeText(view.getContext(), "Giá trẻ em không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
                         else if (ed_pricePeople.isEmpty() || ed_pricePeople.equals(" ")) {
                             Toast.makeText(view.getContext(), "Giá người lớn không được bỏ trống", Toast.LENGTH_LONG).show();
->>>>>>> c496b571426acf05bb661cbac9e6abcd08e1e6ff
                         }
                         else if (ed_resourceId.isEmpty() || ed_resourceId.equals(" ")) {
                             Toast.makeText(view.getContext(), "Link ảnh không được bỏ trống", Toast.LENGTH_LONG).show();
