@@ -65,8 +65,29 @@ public class Tour_add extends AppCompatActivity {
                 String timeTour = edit_timeTour.getText().toString();
                 String sdt  = edit_sdt.getText().toString();
 
-                if(name.isEmpty() || name.equals(" ")) {
+                if(about.isEmpty() || about.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Giới thiệu tour không được bỏ trống", Toast.LENGTH_LONG).show();
+                }else if (name.isEmpty() || name.equals(" ")) {
                     Toast.makeText(view.getContext(), "Tên tour không được bỏ trống", Toast.LENGTH_LONG).show();
+                }else if (placeStart.isEmpty() || placeStart.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Nơi khởi hành không được bỏ trống", Toast.LENGTH_LONG).show();
+                }else if (placeTour.isEmpty() || placeTour.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Điểm dến không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else if (priceChild.isEmpty() || priceChild.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Giá trẻ em không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else if (pricePeople.isEmpty() || pricePeople.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Giá người lớn không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else if (resourceId.isEmpty() || resourceId.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Link ảnh không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else if (timeTour.isEmpty() || timeTour.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Thời gian đi không được bỏ trống", Toast.LENGTH_LONG).show();
+                }
+                else if (sdt.isEmpty() || sdt.equals(" ")) {
+                    Toast.makeText(view.getContext(), "Liên hệ không được bỏ trống", Toast.LENGTH_LONG).show();
                 }
                 else {
                     Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);

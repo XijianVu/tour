@@ -198,7 +198,7 @@ public class TourDetails extends AppCompatActivity {
                     public void onClick(View view) {
 
                         String about = tour_edit_about.getText().toString();
-                        String name1 = tour_edit_name.getText().toString();
+                        String name = tour_edit_name.getText().toString();
                         String placeStart = tour_edit_placeStart.getText().toString();
                         String placeTour = tour_edit_placeTour.getText().toString();
                         String priceChild = tour_edit_priceChild.getText().toString();
@@ -207,11 +207,33 @@ public class TourDetails extends AppCompatActivity {
                         String timeTour = tour_edit_timeTour.getText().toString();
                         String sdt = tour_edit_sdt.getText().toString();
 
-                        if(name1.isEmpty() || name1.equals(" ")) {
-                            Toast.makeText(view.getContext(), "Tên tour không được bỏ trống", Toast.LENGTH_LONG).show();
-                        }else {
+                        if(about.isEmpty() || about.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Giới thiệu tour không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }else if (name.isEmpty() || name.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Tên không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }else if (placeStart.isEmpty() || placeStart.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Nơi khởi hành không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }else if (placeTour.isEmpty() || placeTour.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Điểm dến không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else if (priceChild.isEmpty() || priceChild.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Giá trẻ em không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else if (pricePeople.isEmpty() || pricePeople.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Giá người lớn không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else if (resourceId.isEmpty() || resourceId.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Link ảnh không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else if (timeTour.isEmpty() || timeTour.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Thời gian đi không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else if (sdt.isEmpty() || sdt.equals(" ")) {
+                            Toast.makeText(view.getContext(), "Liên hệ không được bỏ trống", Toast.LENGTH_LONG).show();
+                        }
+                        else {
 
-                            Tour tour = new Tour(about, name1, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
+                            Tour tour = new Tour(about, name, placeStart, placeTour, priceChild, pricePeople, resourceId, timeTour, sdt);
                             ref.child("tour").child(String.valueOf(tour.getName())).setValue(tour);
 
                             DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
@@ -224,7 +246,7 @@ public class TourDetails extends AppCompatActivity {
                                         Toast.makeText(TourDetails.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
 
                                         //Update lại tour
-                                        tvTourName.setText(name1);
+                                        tvTourName.setText(name);
 
                                         dialog.dismiss();
 

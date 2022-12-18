@@ -149,7 +149,12 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
 
                         if(titulo.isEmpty() || titulo.equals(" ")) {
                             Toast.makeText(view.getContext(),"ID không được bỏ trống",Toast.LENGTH_LONG).show();
-                        } else {
+                        }else if (descripcion.isEmpty() || descripcion.equals(" ")){
+                            Toast.makeText(view.getContext(), "Mô tả không được trống", Toast.LENGTH_SHORT).show();
+                        }else if (purl.isEmpty() || purl.equals(" ")){
+                            Toast.makeText(view.getContext(), "Link ảnh không được trống", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
                             Blog blog = new Blog(descripcion, purl, titulo);
                             ref.child("blog").child(String.valueOf(blog.getTitulo())).setValue(blog);
 
