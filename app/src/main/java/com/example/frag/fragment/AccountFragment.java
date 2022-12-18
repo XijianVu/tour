@@ -1,7 +1,6 @@
 package com.example.frag.fragment;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,12 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.frag.Login;
 import com.example.frag.LoginActivity;
-import com.example.frag.MainActivity;
 import com.example.frag.R;
 import com.example.frag.activity.Blog_add;
 import com.example.frag.activity.Tour_add;
@@ -87,14 +82,6 @@ public class AccountFragment extends Fragment {
         LinearLayout blog_add = view.findViewById(R.id.blog_add);
         LinearLayout tour_add = view.findViewById(R.id.tour_add);
 
-        /*blog_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Blog_add.class);
-                startActivity(intent);
-            }
-        });*/
-
         if ( email.equals("admin@gmail.com") )
         {
             blog_add.setVisibility(View.VISIBLE);
@@ -120,7 +107,6 @@ public class AccountFragment extends Fragment {
             blog_add.setVisibility(View.INVISIBLE);
         }
 
-
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +119,7 @@ public class AccountFragment extends Fragment {
                     startActivity(intent);
             }
         });
+
 
 
 

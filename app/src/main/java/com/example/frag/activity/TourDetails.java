@@ -216,11 +216,11 @@ public class TourDetails extends AppCompatActivity {
                         }else if (placeTour.isEmpty() || placeTour.equals(" ")) {
                             Toast.makeText(view.getContext(), "Điểm dến không được bỏ trống", Toast.LENGTH_LONG).show();
                         }
-                        else if (priceChild.isEmpty() || priceChild.equals(" ")) {
-                            Toast.makeText(view.getContext(), "Giá trẻ em không được bỏ trống", Toast.LENGTH_LONG).show();
+                        else if (priceChild.isEmpty() || priceChild.equals(" ") || !priceChild.matches("-?\\d+(\\.\\d+)?")) {
+                            Toast.makeText(view.getContext(), "Giá trẻ em bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
                         }
-                        else if (pricePeople.isEmpty() || pricePeople.equals(" ")) {
-                            Toast.makeText(view.getContext(), "Giá người lớn không được bỏ trống", Toast.LENGTH_LONG).show();
+                        else if (pricePeople.isEmpty() || pricePeople.equals(" ") || !pricePeople.matches("-?\\d+(\\.\\d+)?")) {
+                            Toast.makeText(view.getContext(), "Giá người lớn bỏ trống hoặc sai định dạng", Toast.LENGTH_LONG).show();
                         }
                         else if (resourceId.isEmpty() || resourceId.equals(" ")) {
                             Toast.makeText(view.getContext(), "Link ảnh không được bỏ trống", Toast.LENGTH_LONG).show();
