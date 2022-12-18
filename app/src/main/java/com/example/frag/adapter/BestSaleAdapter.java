@@ -68,7 +68,7 @@ public class BestSaleAdapter extends FirebaseRecyclerAdapter<Tour,BestSaleAdapte
                 intent.putExtra("pricePeople", model.getPricePeople());
                 intent.putExtra("priceChild", model.getPriceChild());
                 intent.putExtra("sdt", model.getSdt());
-                Toast.makeText(context, model.getName(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, model.getName(), Toast.LENGTH_SHORT).show();
 
                 context.startActivity(intent);
             }

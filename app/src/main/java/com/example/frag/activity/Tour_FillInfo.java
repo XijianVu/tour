@@ -69,7 +69,7 @@ public class Tour_FillInfo extends AppCompatActivity {
 
         int people_amount = bundle.getInt("_counter_people");
         int child_amount = bundle.getInt("_counter_child");
-        Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
+        //Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
         String priceTotal = String.valueOf(people_amount*people+child_amount*child);
 
         int price = Integer.parseInt(priceTotal);
@@ -106,7 +106,7 @@ public class Tour_FillInfo extends AppCompatActivity {
 
                     if( edName.isEmpty() || emailchk == false || phonechk == false){
                         Toast.makeText(view.getContext(),"Điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
-                        Toast.makeText(view.getContext(), emailchk + "sgsd", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(view.getContext(), emailchk + "sgsd", Toast.LENGTH_LONG).show();
                     }
                     else{
                         Intent intent = new Intent(Tour_FillInfo.this, Tour_PaySuccess.class);
