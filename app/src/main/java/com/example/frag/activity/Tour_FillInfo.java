@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,19 +72,27 @@ public class Tour_FillInfo extends AppCompatActivity {
         Toast.makeText(Tour_FillInfo.this, "_counter_people"+people_amount + "_counter_child"+child_amount ,Toast.LENGTH_LONG).show();
         String priceTotal = String.valueOf(people_amount*people+child_amount*child);
 
+        int price = Integer.parseInt(priceTotal);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+
+
+
         Picasso.get().load(image).into(img);
         tvTourName.setText(name);
         tvTimeTour.setText(timeTour);
         tvPlaceStart.setText(placeStart);
-        tvPriceTotal.setText(priceTotal);
+        tvPriceTotal.setText(decimalFormat.format(price) + "VND");
         tvPeople_amount.setText(String.valueOf(people_amount));
         tvChild_amount.setText(String.valueOf(child_amount));
 
         tvAmountTicketPeople.setText("("+String.valueOf(people_amount)+"x)");
         tvAmountTicketChild.setText("("+String.valueOf(child_amount)+"x)");
 
-        tvPricePeople.setText(String.valueOf(people_amount*people));
-        tvPriceChild.setText(String.valueOf(child_amount*child));
+        tvPricePeople.setText(decimalFormat.format(Integer.parseInt(String.valueOf(people_amount*people))));
+        tvPriceChild.setText(decimalFormat.format(Integer.parseInt(String.valueOf(child_amount*child))));
+
 
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override

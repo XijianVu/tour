@@ -1,5 +1,7 @@
 package com.example.frag.adapter;
 
+import static java.lang.reflect.Array.getInt;
+
 import android.content.Context;
 import android.content.Intent;
 import android.transition.AutoTransition;
@@ -28,6 +30,7 @@ import com.example.frag.model.Ticket;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.TourViewHolder> {
@@ -46,11 +49,16 @@ public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.
 
     @Override
     protected void onBindViewHolder(@NonNull MyTourAdapter.TourViewHolder holder, int position, @NonNull Ticket model) {
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+
         Glide.with(holder.imgItem.getContext()).load(model.getImage()).into(holder.imgItem);
         holder.tvTourName.setText(model.getNameTour());
         holder.tvtimeTour.setText(model.getTimeTour());
         holder.placeTour.setText(model.getPlaceTour());
-        holder.tvPrice.setText(model.getPriceTotal() + "VND");
+        holder.tvPrice.setText(decimalFormat.format(Integer.parseInt(model.getPriceTotal())) + "VND");
         holder.phoneCustom.setText(model.getPhoneCustom());
         holder.emailCustom.setText(model.getEmailCustom());
         holder.placeStart.setText(model.getPlaceStart());

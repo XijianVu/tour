@@ -145,7 +145,7 @@
                     android:layout_gravity="center"
                     android:text="Người lớn "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvPricePeople"
@@ -155,7 +155,7 @@
                     android:layout_weight="8"
                     android:text="Price"
                     android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="116dp"
@@ -211,7 +211,7 @@
 
                     android:text="Trẻ em  "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvPriceChild"
@@ -221,7 +221,7 @@
                     android:layout_weight="8"
                     android:text="Price"
                     android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="116dp"

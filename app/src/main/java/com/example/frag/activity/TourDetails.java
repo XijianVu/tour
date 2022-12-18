@@ -37,6 +37,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
@@ -81,12 +82,17 @@ public class TourDetails extends AppCompatActivity {
 
 
         Picasso.get().load(image).into(viewPagerdetails);
+
+        int price = Integer.parseInt(pricePeople);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
         //viewPagerdetails.setImageResource(image);
         tvTourName.setText(name);
 
         placeTour.setText(place);
         placeStart.setText(startPlace);
-        tvPrice.setText(pricePeople);
+        tvPrice.setText(decimalFormat.format(price) + " VND");
         tourtrend.setText(about);
         tvTimeTour.setText(timeTour);
 

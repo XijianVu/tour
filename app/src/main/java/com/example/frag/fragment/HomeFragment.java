@@ -25,18 +25,17 @@ import com.example.frag.adapter.BestSaleAdapter;
 import com.example.frag.model.Tour;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
 
     private View mView;
-    private List<Tour> listitem;
+    private ArrayList<Tour> listitem;
     private BestSaleAdapter photo1Adapter;
 
 
@@ -97,8 +96,10 @@ public class HomeFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+
     private void mysearch(String query) {
 
+        String a =query.toLowerCase().toString();
         FirebaseRecyclerOptions<Tour> optionBestSale =
                 new FirebaseRecyclerOptions.Builder<Tour>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("tour").orderByChild("name").startAt(query).endAt(query + "\uf8ff"), Tour.class)
