@@ -46,11 +46,11 @@ public class MyTourAdapter extends FirebaseRecyclerAdapter<Ticket,MyTourAdapter.
 
     @Override
     protected void onBindViewHolder(@NonNull MyTourAdapter.TourViewHolder holder, int position, @NonNull Ticket model) {
-
+        Glide.with(holder.imgItem.getContext()).load(model.getImage()).into(holder.imgItem);
         holder.tvTourName.setText(model.getNameTour());
         holder.tvtimeTour.setText(model.getTimeTour());
         holder.placeTour.setText(model.getPlaceTour());
-        holder.tvPrice.setText(model.getPriceTotal());
+        holder.tvPrice.setText(model.getPriceTotal() + "VND");
         holder.phoneCustom.setText(model.getPhoneCustom());
         holder.emailCustom.setText(model.getEmailCustom());
         holder.placeStart.setText(model.getPlaceStart());

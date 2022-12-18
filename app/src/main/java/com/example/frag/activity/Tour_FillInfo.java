@@ -93,8 +93,9 @@ public class Tour_FillInfo extends AppCompatActivity {
                     String edemail = edEmailCustom.getText().toString();
 
                     boolean emailchk= checkEmail(edemail);
+                    boolean phonechk = checkPhone(edphone);
 
-                    if( edName.isEmpty() || emailchk == false || edphone.length()!=10){
+                    if( edName.isEmpty() || emailchk == false || phonechk == false){
                         Toast.makeText(view.getContext(),"Điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
                         Toast.makeText(view.getContext(), emailchk + "sgsd", Toast.LENGTH_LONG).show();
                     }
@@ -111,7 +112,7 @@ public class Tour_FillInfo extends AppCompatActivity {
                         int a =email.indexOf("@");
                         String email1 = email.substring(0, a);
 
-                        Ticket ticket = new Ticket(name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
+                        Ticket ticket = new Ticket(image,name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
                         ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
                         startActivity(intent);
@@ -175,7 +176,12 @@ public class Tour_FillInfo extends AppCompatActivity {
             }
         });
     }
+    public static boolean checkPhone(String phone) {
 
+        Pattern PHONE_PATTERN = Pattern
+                .compile("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$");
+        return PHONE_PATTERN.matcher(phone).matches();
+    }
 
     public static boolean checkEmail(String email) {
 

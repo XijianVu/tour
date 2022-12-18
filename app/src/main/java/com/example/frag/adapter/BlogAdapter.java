@@ -137,6 +137,10 @@ public class BlogAdapter extends FirebaseRecyclerAdapter<Blog,BlogAdapter.BlogVi
                 EditText blog_edit_purl = dialog.findViewById(R.id.blog_edit_purl);
                 EditText blog_edit_titulo = dialog.findViewById(R.id.blog_edit_titulo);
 
+                blog_edit_descripcion.setText(model.getDescripcion());
+                blog_edit_purl.setText(model.getPurl());
+                blog_edit_titulo.setText(model.getTitulo());
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 ref = database.getReference();
 
