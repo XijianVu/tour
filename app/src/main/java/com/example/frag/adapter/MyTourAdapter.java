@@ -24,7 +24,7 @@ import com.example.frag.R;
 import com.example.frag.activity.MyTourDetail;
 import com.example.frag.activity.TourDetails;
 import com.example.frag.model.Ticket;
-import com.example.frag.model.item;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 

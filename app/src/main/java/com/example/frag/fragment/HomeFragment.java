@@ -3,7 +3,6 @@ package com.example.frag.fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,30 +17,20 @@ import androidx.annotation.Nullable;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.adapter.BestSaleAdapter;
-import com.example.frag.fragment.itemTab1.Photo2Adapter;
-import com.example.frag.fragment.itemTab1.Photo3Adapter;
-import com.example.frag.fragment.itemTab1.Photo4Adapter;
+
 import com.example.frag.model.Tour;
-import com.example.frag.model.Tour2;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.internal.cache.DiskLruCache;
 
 public class HomeFragment extends Fragment {
 
@@ -49,10 +38,7 @@ public class HomeFragment extends Fragment {
     private View mView;
     private List<Tour> listitem;
     private BestSaleAdapter photo1Adapter;
-    private Photo2Adapter photo2Adapter;
-    private Photo3Adapter photo3Adapter;
-    private Photo4Adapter photo4Adapter;
-    private TabLayout tabLayout;
+
 
     private ArrayList<Tour> arrayList;
     private RecyclerView home1_viewpager1;
