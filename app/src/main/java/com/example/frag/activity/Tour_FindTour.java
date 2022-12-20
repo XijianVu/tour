@@ -139,6 +139,7 @@ public class Tour_FindTour extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
                                 txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                                 txtDate2.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
@@ -150,6 +151,7 @@ public class Tour_FindTour extends AppCompatActivity {
         btnFillInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (_counter_people==0){
                     Toast.makeText(view.getContext(),"Vui lòng chọn ít nhất 1 vé người lớn",Toast.LENGTH_LONG).show();
                 }
@@ -161,7 +163,7 @@ public class Tour_FindTour extends AppCompatActivity {
                     intent.putExtra("priceChild", priceChild);
                     intent.putExtra("_counter_people", _counter_people);
                     intent.putExtra("_counter_child", _counter_child);
-                    intent.putExtra("timeTour", formattedDate);
+                    intent.putExtra("timeTour", txtDate.getText().toString());
 
                     intent.putExtra("placeStart",placeStart);
                     intent.putExtra("placeTour",placeTour);
