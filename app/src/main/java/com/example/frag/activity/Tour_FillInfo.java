@@ -124,6 +124,8 @@ public class Tour_FillInfo extends AppCompatActivity {
                         Ticket ticket = new Ticket(image,name,placeTour,priceTotal,timeTour, phoneCustom,emailCustom,  placeStart, time, people_amount, child_amount );
                         ref.child("ticket").child(email1.toString()).child(String.valueOf(ticket.getTime())).setValue(ticket);
 
+                        ref.child("ticket").child("admin").child(String.valueOf(ticket.getTime())).setValue(ticket);
+
                         startActivity(intent);
                     }
 
